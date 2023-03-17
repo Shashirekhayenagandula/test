@@ -1,0 +1,30 @@
+<template>
+  <template if:true={file}>
+    <li
+      class="
+        slds-col
+        slds-var-p-vertical_x-small
+        slds-small-size_1-of-2
+        slds-medium-size_1-of-4
+        slds-large-size_1-of-6
+      "
+    >
+    <div class="slds-file slds-file_card slds-has-title crop">
+      <img src={thumbnail} alt={file.title} onclick={imageClick}/>
+          <div class="slds-is-absolute button">
+              <lightning-button-menu
+                  alternative-text="Show File Menu"
+                  variant="border-filled"
+              icon-size="xx-medium"
+    >
+            <lightning-menu-item
+              value={file.ContentDocumentId}
+              label="Delete"
+              onclick={delGalleryPhoto}
+            ></lightning-menu-item>
+          </lightning-button-menu>
+        </div>
+      </div>
+    </li>
+  </template>
+</template>

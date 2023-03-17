@@ -1,0 +1,5 @@
+<aura:component controller="MatchPreferenceNewOverideClass" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,lightning:actionOverride,lightning:isUrlAddressable" access="global" >
+<aura:handler name="change" value="{!v.pageReference}" action="{!c.handleChange}"/>
+   
+<c:newMatchPreferences/>
+</aura:component>

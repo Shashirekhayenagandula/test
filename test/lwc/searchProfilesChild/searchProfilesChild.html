@@ -1,0 +1,279 @@
+<template>
+    <lightning-card>
+        
+                    <div class="slds-grid slds-gutters mouse"> 
+                        <div class="slds-col slds-size_1-of-12" >
+                            <span>
+                               <!--<template if:true={v.value}>
+                                    <lightning-input type="checkbox" value="" onchange={handleCheckBox} data-id={profile.profilewrapper.Id} checked></lightning-input>
+                                    </template>
+                                    
+                                    <template if:false={v.value}>
+                                        <lightning-input type="checkbox" value="" onchange={handleCheckBox} data-id={profile.profilewrapper.Id}></lightning-input>
+                                    </template>--> 
+                                <template if:true={profile.value}>
+                                    <lightning-input type="checkbox"  onchange={handleCheckBox} data-id={profile.label.profilewrapper.Id} checked></lightning-input>
+                                </template>
+                                <template if:false={profile.value}>
+                                    <lightning-input type="checkbox" onchange={handleCheckBox} data-id={profile.label.profilewrapper.Id}></lightning-input>
+                                </template>
+                            </span>
+                        </div>
+            
+                            <div class="slds-col slds-size_3-of-12">
+                            <span><img src={profile.label.ContentVersionId} alt="No Image"  class="fitimage"/></span>
+                            </div>
+                    
+                        <div class="slds-col slds-size_5-of-12 details">
+                        <span><p><b>{profileslabel.fields.Name.label}</b>    :   {profile.label.profilewrapper.Name}</a></p>
+                                <p><b>{profileslabel.fields.Match_Maker__Age__c.label}</b>            :  {profile.label.profilewrapper.Match_Maker__Age__c}</p>
+                                <p><b>{profileslabel.fields.Match_Maker__Height__c.label}</b>         :  {profile.label.profilewrapper.Match_Maker__Height__c}</p>
+                                <p><b>{profileslabel.fields.Match_Maker__Religion__c.label}</b>       :  {profile.label.profilewrapper.Match_Maker__Religion__c}</p>
+                                <p><b>{profileslabel.fields.Match_Maker__Zodiac__c.label}</b>         :  {profile.label.profilewrapper.Match_Maker__Zodiac__c}</p>
+                                <p><b>{profileslabel.fields.Match_Maker__Highest_Qualification__c.label}</b>      :  {profile.label.profilewrapper.Match_Maker__Highest_Qualification__c}</p>
+                                <p><b>{profileslabel.fields.Match_Maker__Professional_Area__c.label} </b>    :  {profile.label.profilewrapper.Match_Maker__Professional_Area__c}</p>
+                                <p><b>{profileslabel.fields.Match_Maker__Income_yearly__c.label}</b>  : ₹{profile.label.profilewrapper.Match_Maker__Income_yearly__c}</p>
+                                <p><b>{profileslabel.fields.Match_Maker__Marital_Status__c.label}</b> :  {profile.label.profilewrapper.Match_Maker__Marital_Status__c}</p>
+                                <p><b>{profileslabel.fields.Match_Maker__Lives_In__c.label}</b>       :  {profile.label.profilewrapper.Match_Maker__Lives_In__City__s},{profile.label.profilewrapper.Match_Maker__Lives_In__StateCode__s},{profile.label.profilewrapper.Match_Maker__Lives_In__CountryCode__s}</p>
+                            </span>
+                            </div >
+                        <div class="slds-col slds-size_3-of-12">
+                        <span>  <br/>
+                            <div class="slds-align_absolute-center" style="font-size: 15px">
+                                <lightning-button label="View Profile" variant="brand" value={profile.label.profilewrapper.Id} onclick={navigateProfile}></lightning-button>        
+                                
+                              </div><br/>
+                              <div class="slds-align_absolute-center" style="font-size: 15px">
+                                Probability Matched: {profile.label.probability}%
+                              </div>
+                        </span>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <lightning-accordion allow-multiple-sections-open onsectiontoggle={handleSectionToggle}>
+                        <lightning-accordion-section  name={profile.label.profilewrapper.Name} label="Click here to Compare">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-table_fixed-layout slds-table_striped slds-no-row-hover" style="width:100%">
+                                <tr class="slds-line-height_reset" style="height:35px" bgcolor="grey">
+                                    <th scope="col" width="20%" style="text-align: center;font-weight: bold">
+                                        <div class="">Fields
+                                        </div> 
+                                    </th>
+                                    <th scope="col" width="40%" style="text-align: center;font-weight: bold">
+                                        <div class="">Your Expectation
+                                        </div>
+                                    </th>
+                                    <th scope="col" width="40%" style="text-align: center;font-weight: bold">
+                                        <div class="">{profile.label.profilewrapper.Name} Details
+                                        </div>
+                                    </th>
+                                </tr>
+                               
+                                <template if:true={profile.label.AgeBool}>
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Age__c.label} </td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Min_Age__c} - {profile.label.preferencewrapper.Match_Maker__Max_Age__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Age__c}</td>
+                                    </tr>
+                                </template>
+                                <template if:false={profile.label.AgeBool}>
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Age__c.label}</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Min_Age__c} - {profile.label.preferencewrapper.Match_Maker__Max_Age__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Age__c}</td>
+                                    </tr>
+                                </template>
+                                <template if:true={profile.label.HeightBool}>
+                                    <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Height__c.label} </td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Min_Height__c} - {profile.label.preferencewrapper.Match_Maker__Max_Height__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Height__c}</td>
+                                </tr>
+                            </template>
+                            <template if:false={profile.label.HeightBool}>
+                                <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Height__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Min_Height__c} - {profile.label.preferencewrapper.Match_Maker__Max_Height__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Height__c}</td>
+                                </tr>
+                            </template>    
+                                              <!-- zodiac start -->
+                            <template if:true={profile.label.ZodiacBool}> 
+                                <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Zodiac__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Zodiac__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Zodiac__c}</td>
+                                </tr>
+                                </template>
+                                <template if:false={profile.label.ZodiacBool}> 
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Zodiac__c.label}</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Zodiac__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Zodiac__c}</td>
+                                    </tr>
+                                    </template>  
+                                              <!-- zodiac start -->
+                            <template if:true={profile.label.HavingchildrenBool}> 
+                                <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;Having Children</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Having_Children__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Does_He_She_They_have_children__c}</td>
+                                </tr>
+                                </template>
+                                <template if:false={profile.label.HavingchildrenBool}> 
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;Having Children</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Having_Children__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Does_He_She_They_have_children__c}</td>
+                                </tr>
+                                </template>
+                                <template if:true={profile.label.MaritalStatusBool}> 
+                                        <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Marital_Status__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Material_Status__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Marital_Status__c}</td>
+                                </tr>
+                                </template>
+                                <template if:false={profile.label.MaritalStatusBool}> 
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Marital_Status__c.label}</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Material_Status__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Marital_Status__c}</td>
+                                    </tr>
+                                    </template>
+                                    <template if:true={profile.label.HighestQualificationBool}>
+                                        <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Highest_Qualification__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Highest_Qualification__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Highest_Qualification__c}</td>
+                                </tr>
+                                </template>
+                                <template if:false={profile.label.HighestQualificationBool}>
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Highest_Qualification__c.label}</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Highest_Qualification__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Highest_Qualification__c}</td>
+                                    </tr>
+                                    </template>
+                                    <template if:true={profile.label.workingwithBool}>
+                                        <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Working_with__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Working_with__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Working_with__c}</td>
+                                </tr>
+                                </template>
+                                <template if:false={profile.label.workingwithBool}>
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Working_with__c.label}</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Working_with__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Working_with__c}</td>
+                                    </tr>
+                                    </template>
+                                    <template if:true={profile.label.ProfessionalAreaBool}>
+                                        <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Professional_Area__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Professional_Area__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Professional_Area__c}</td>
+                                </tr>
+                            </template>
+                            <template if:false={profile.label.ProfessionalAreaBool}>
+                                <tr class="slds-hint-parent">
+                                <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Professional_Area__c.label}</td>
+                                <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Professional_Area__c}</td>
+                                <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Professional_Area__c}</td>
+                            </tr>
+                        </template>
+                        <template if:true={profile.label.AnnualIncomeBool}>
+                            <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Income_yearly__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Annual_Income__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Income_yearly__c}</td>
+                                </tr>
+                            </template>
+                            <template if:false={profile.label.AnnualIncomeBool}>
+                                <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Income_yearly__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Annual_Income__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Income_yearly__c}</td>
+                                </tr>
+                            </template>
+                            <template if:true={profile.label.ReligionBool}>
+                                <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Religion__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Religion__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Religion__c}</td>
+                                </tr>
+                                </template>
+                                <template if:false={profile.label.ReligionBool}>
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Religion__c.label}</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Religion__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Religion__c}</td>
+                                    </tr>
+                                    </template>
+                                    <template if:true={profile.label.SmokeBool}>
+                                        <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Smoke__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Does_Smoke__c}</td>
+                                    <td class="pro slds-cell-wrap" >{profile.label.profilewrapper.Match_Maker__Smoke__c}</td>
+                                </tr>
+                                </template>
+                                <template if:false={profile.label.SmokeBool}>
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Smoke__c.label}</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Does_Smoke__c}</td>
+                                        <td class="pro slds-cell-wrap" >{profile.label.profilewrapper.Match_Maker__Smoke__c}</td>
+                                    </tr>
+                                    </template>
+                                    <template if:true={profile.label.AlocoholBool}>
+                                        <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Drinks__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Alcohol__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Drinks__c}</td>
+                                </tr>
+                                </template>
+                                <template if:false={profile.label.AlocoholBool}>
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Drinks__c.label}</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Alcohol__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Drinks__c}</td>
+                                    </tr>
+                                    </template>
+                                    <template if:true={profile.label.DietBool}>
+                                        <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Your_Diet__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Diet__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Your_Diet__c}</td>
+                                </tr>
+                                </template>
+                                <template if:false={profile.label.DietBool}>
+                                    <tr class="slds-hint-parent">
+                                        <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Your_Diet__c.label}</td>
+                                        <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Diet__c}</td>
+                                        <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Your_Diet__c}</td>
+                                    </tr>
+                                    </template>
+                                    <template if:true={profile.label.SkinToneBool}>
+                                        <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#9989;{profileslabel.fields.Match_Maker__Skin_Tone_C__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Skin_Tone_Complexion__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Skin_Tone_C__c}</td>
+                                </tr>
+                            </template>
+                            <template if:false={profile.label.SkinToneBool}>
+                                <tr class="slds-hint-parent">
+                                    <td class="label slds-cell-wrap">&#10060;{profileslabel.fields.Match_Maker__Skin_Tone_C__c.label}</td>
+                                    <td class="mp slds-cell-wrap">{profile.label.preferencewrapper.Match_Maker__Skin_Tone_Complexion__c}</td>
+                                    <td class="pro slds-cell-wrap">{profile.label.profilewrapper.Match_Maker__Skin_Tone_C__c}</td>
+                                </tr>
+                            </template>
+                              </table>
+                        </lightning-accordion-section>
+                </lightning-accordion>  
+              
+    </lightning-card>
+   
+</template>

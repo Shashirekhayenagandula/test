@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>SiteUserTemplate</name>
+    <style>none</style>
+    <subject>Matchy Profile Creation</subject>
+    <textOnly>Dear  {!Profile__c.Name},  
+
+Greetings!  
+
+We hope you are doing well. Thanks for Choosing Matchy. We are bounded to provide the best services to our customers. 
+
+Here is one request from us, Please fill out the form by clicking the link given below
+{!Profile__c.ProfileURL__c}. 
+This will help us to provide the best service to you.   
+
+Thanks &amp; Regards 
+Matchy 
+The Matchmaker App</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

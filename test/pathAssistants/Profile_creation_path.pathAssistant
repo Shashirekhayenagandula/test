@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Profile__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Profile creation path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Status__c</fieldNames>
+        <picklistValueName>New Profile</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

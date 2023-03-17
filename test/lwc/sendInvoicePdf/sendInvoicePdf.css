@@ -1,0 +1,20 @@
+.slds-modal__container{
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 1000rem !important;
+    max-height: 300rem !important;  
+}
+
+/*.slds-modal__container{
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 150rem !important;
+    padding-top:5px !important;
+    padding-bottom:5px !important;
+    margin-left: 0px !important;
+      
+}*/
+.form{
+    font-size: 18px;
+    text-align: center;
+}

@@ -1,0 +1,36 @@
+.slds-modal__container{
+    width: 70% !important;
+    height: 100% !important;
+    max-width: 100rem !important;
+    padding-bottom:52px !important; 
+      
+}
+
+.slds-section__title {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    line-height: 1.875rem;
+    margin-left: 10px;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.slds-theme_shade {
+    background-color: rgb(243, 243, 243)
+}
+
+.innerPadding{
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+.content{
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+    padding-top: 0.5rem;
+}
+.my-icon {
+    font-weight: bold;
+    --sds-c-icon-color-foreground-default: white;
+}

@@ -1,0 +1,166 @@
+<apex:page controller="EditProfileWithWrapper" sidebar="false" applyHtmlTag="false" applyBodyTag="false" showHeader="false" standardStylesheets="false" docType="html-5.0" expires="1">
+  <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+     
+    	<apex:includeScript value="{!$Resource.JQuery}" />
+        <script>
+        var j$ = jQuery.noConflict();
+        function styleerror() {
+            j$(document).ready(function() {
+                j$(".errorMsg").css("color", "red");
+                j$("div .messageText h4").css("color", "white");
+                j$("div .infoM3").addClass("slds-notify slds-notify--alert slds-theme--inverse-text slds-theme--alert-texture");
+                j$("div .errorM3").addClass("slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture");
+                j$("div .warningM3").addClass("slds-notify slds-notify--alert slds-theme--inverse-text slds-theme--alert-texture");
+                j$("div .confirmM3").addClass("slds-notify slds-notify--alert slds-theme--success slds-theme--alert-texture");
+            });
+        }
+        styleerror();
+        function show(obj)
+        {
+            if(document.getElementById(obj).style.display == 'none')
+            {
+                document.getElementById(obj).style.display = 'block';
+            }
+            else
+                document.getElementById(obj).style.display = 'none';
+        }
+        </script>
+       <head>
+		<style> 
+       			@page {
+                     margin-bottom: 2in;
+                     margin-top: 2in;
+            		 margin-left:30px;
+            		 margin-right:30px;
+            		 padding-left:30px;
+            		 padding-right:30px;
+            		padding-bottom:30px;
+                      @top-center {
+                          content: element(header);
+                          }
+                      @bottom-left {
+                          content: element(footer);
+                           }
+                    }
+                      div.header {
+                        padding: 0px;
+                        position: running(header);
+                        background-color: #f1f3f2;
+                        }
+                      div.footer {
+                        display: block;
+                        position:  position:fixed;;
+                        }
+            			 body { font-family: 'Arial Unicode MS'; padding: 0px;}
+           
+                         footer {font: normal; font-size: 12px; color: #505053;  position:fixed; }
+            
+                         .line {color: #E72683;}
+                         .footerline {color: black;}
+                         disclaimer {font-style: italic; font-size: 12px; color: #505053; }
+            
+            label {
+                float: left;
+                width: 300px;
+                margin-left: 20px;
+                text-align: left;
+             }
+            input ,select
+        	{
+       		
+             background-color: #EEEEEE;
+                 width: 50%;
+  				 padding: 12px 20px;
+  				margin: 10px 10px 10px 10px;
+  				box-sizing: border-box;
+          } 
+            
+             
+            
+           .section
+            {
+            	padding: 20px;
+            	
+            	margin-right:20px;
+            	 margin-top: -30px;
+            	width:100%;
+
+            }
+            .main{
+            		font-size: 20px;
+        			color: black;
+            		 
+            }
+            .margin{
+            	margin-bottom: 20px;
+                     margin-top: 0in;
+            		 margin-left:100px;
+            		 margin-right:100px;
+            		border: 0.001px solid rgb(230, 230, 230);
+            }
+           .header {
+  				display: inline-block; 
+  				width: 100%;
+  
+			}
+				.imageOne {
+   					float: left;
+            		margin-top: 30px;
+					}
+				.imageTwo {
+	 	 			margin-top: 70px;
+            			float: right;
+            			margin-right:-85px;
+				}
+            .sub{
+            	font-size: 20px;
+            	color:red;
+            }
+           @media only screen and (max-width: 450px){
+            .imageTwo {
+	 	 			margin-top: -70px;
+            			float: right;
+            			margin-right:-85px;
+				}
+            }
+        </style>
+         <apex:slds />
+        
+    </head>
+      
+    <body class="slds-scope">
+	
+<apex:form >
+    <div class="margin">
+        
+
+     <div class="header">
+       
+               <div class="imageOne">   
+       
+            <apex:image value="{!$Resource.MatchyLogo}" width="40%" />
+            
+            </div>
+            <div class="imageTwo">   
+            <apex:image value="{!$Resource.Dhruvsoft_Logo}"  width="50%" />
+           </div>
+          
+       </div>
+    
+     <div style="display:{!if(!submitted,"grid","none")}">
+    <div class="main">
+        <center><p><b><h1 class="slds-section-title slds-text-align--center" style="background-color:#11b0e6;font-weight:bold;color:white;height:50%;font-size: 20px;">Profile Information</h1></b></p></center> 
+    </div>
+     <apex:pageMessages ></apex:pageMessages>
+    <hr/>
+ <div class="section" id="accordion">
+            <center>
+				<h1 Style="font-weight:bold;color:green;font-size: 20px;width:100%;">Thank You for filling out information!</h1>
+            </center>           
+        </div>
+    </div>
+    </div>
+        </apex:form>
+       </body>
+    </html>
+</apex:page>

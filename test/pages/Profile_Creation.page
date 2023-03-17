@@ -1,0 +1,984 @@
+<apex:page controller="EditProfileWithWrapper" sidebar="false" applyHtmlTag="false" applyBodyTag="false" showHeader="false" standardStylesheets="false" docType="html-5.0" expires="1">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        
+        <apex:includeScript value="{!$Resource.JQuery}" />
+        <script type="text/javascript"  language="javascript">
+        if(jQuery) { jQuery.noConflict(); }
+        var j$ = jQuery.noConflict();
+        function styleerror() {
+            j$(document).ready(function() {
+                j$(".errorMsg").css("color", "red");
+                j$("div .messageText h4").css("color", "white");
+                j$("div .infoM3").addClass("slds-notify slds-notify--alert slds-theme--inverse-text slds-theme--alert-texture");
+                j$("div .errorM3").addClass("slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture");
+                j$("div .warningM3").addClass("slds-notify slds-notify--alert slds-theme--inverse-text slds-theme--alert-texture");
+                j$("div .confirmM3").addClass("slds-notify slds-notify--alert slds-theme--success slds-theme--alert-texture");
+            });
+        }
+        styleerror();
+        function show(obj)
+        {
+            if(document.getElementById(obj).style.display == 'none')
+            {
+                document.getElementById(obj).style.display = 'block';
+            }
+            else
+                document.getElementById(obj).style.display = 'none';
+        }
+        $("#Formid"). Save(function (e){e.preventDefault(); });
+        $("#Formid"). Submit(function (e){e.preventDefault(); });
+       
+        function getIEFileSize(file){
+            var myFSO = new ActiveXObject("Scripting.FileSystemObject"),
+                filepath = file.value,
+                thefile = myFSO.getFile(filepath);
+            return thefile.size;
+        }
+        function checkFileSize()
+        {
+            showSpinner();
+            var goodSize = true;
+            $('input[type=file]').each(function()
+                                       {
+                                           if(typeof this.files[0] !== 'undefined')
+                                           {
+                                               var file = this.files[0],
+                                                   size = typeof ActiveXObject !== 'undefined' ?
+                                                   getIEFileSize(file)
+                                               :
+                                               file.fileSize || file.size;
+                                               
+                                               goodSize = 26000000 > size;
+                                               //alert(size);
+                                               if(!goodSize)
+                                               {
+                                                   alert(this.files[0].name +' is too large - please choose a file that is 25Mb or less');
+                                               }
+                                               else
+                                               {
+                                                   if (2000000 < size)
+                                                   {
+                                                       goodSize=confirm('The file size is ' + size +
+                                                                        ' bytes - this may take some time. Are you sure you wish to continue');
+                                                   }
+                                               }
+                                               return goodSize;
+                                           }
+                                       });
+            return goodSize;
+        }
+        function showSpinner()
+        {
+            document.getElementById('opaque').style.display='block';
+            var popUp = document.getElementById('spinner');
+            popUp.style.display = 'block';
+        }
+        
+        function previewFile(input) {
+            var preview = input.nextElementSibling;
+            var file = input.files[0];
+            var reader = new FileReader();
+            
+            reader.onloadend = function() {
+                preview.src = reader.result;
+            }
+            
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+        </script>
+        <head>
+            <style> 
+                .activeTab {background-color: #236FBD; color:white; background-image:none}
+                .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+                .exceptionText{font-style:italic; 
+                font-size:16px; 
+                font-weight:bold; 
+                text-align:center;
+                color:green;
+                }
+                .exceptionText1{font-style:italic; 
+                font-size:16px; 
+                font-weight:bold; 
+                text-align:center;
+                color:red;
+                }
+                @page {
+                margin-bottom: 2in;
+                margin-top: 2in;
+                margin-left:30px;
+                margin-right:30px;
+                padding-left:30px;
+                padding-right:30px;
+                padding-bottom:30px;
+                @top-center {
+                content: element(header);
+                }
+                @bottom-left {
+                content: element(footer);
+                }
+                }
+                div.header {
+                padding: 0px;
+                position: running(header);
+                background-color: #f1f3f2;
+                }
+                div.footer {
+                display: block;
+                position:  position:fixed;;
+                }
+                body { font-family: 'Arial Unicode MS'; padding: 0px;}
+                
+                footer {font: normal; font-size: 12px; color: #505053;  position:fixed; }
+                
+                .line {color: #E72683;}
+                .footerline {color: black;}
+                disclaimer {font-style: italic; font-size: 12px; color: #505053; }
+                
+                label {
+                float: left;
+                width: 300px;
+                margin-left: 20px;
+                text-align: left;
+                }
+                input ,select
+                {
+                
+                background-color: #EEEEEE;
+                width: 50%;
+                padding: 12px 20px;
+                margin: 10px 10px 10px 10px;
+                box-sizing: border-box;
+                }
+                .section
+                {
+                padding: 20px;
+                
+                margin-right:20px;
+                margin-top: -30px;
+                width:100%;
+                
+                }
+                .main{
+                font-size: 20px;
+                color: black;
+                
+                }
+                button:hover + .slds-popover.slds-popover_tooltip.slds-hide {
+                display : block!important;
+                }
+                .margin{
+                margin-bottom: 20px;
+                margin-top: 0in;
+                margin-left:100px;
+                margin-right:100px;
+                border: 0.001px solid rgb(230, 230, 230);
+                }
+                .header {
+                display: inline-block; 
+                width: 100%;
+                
+                }
+                .imageOne {
+                float: left;
+                margin-top: 30px;
+                }
+                .imageTwo {
+                margin-top: 70px;
+                float: right;
+                margin-right:-85px;
+                }
+                .sub{
+                font-size: 20px;
+                color:red;
+                }
+                @media only screen and (max-width: 450px){
+                .imageTwo {
+                margin-top: -70px;
+                float: right;
+                margin-right:-85px;
+                }
+                }
+                .del{
+                padding-top: 500px;
+                padding-right: 30px;
+                padding-bottom: 0px;
+                padding-left: 80px;
+                position: absolute;
+                }
+                div.tooltip {
+                width: 20px;
+                float: right;
+                display:inline;
+                }
+                
+                div.tooltip span {
+                display: none;
+                font-weight:normal;
+                text-align:left;
+                padding: 3px 5px;
+                margin-left: 8px;
+                width: 250px;
+                }
+                
+                div.tooltip:hover span {
+                display: inline;
+                position: absolute;
+                border: 1px solid #cccccc;
+                background: #FFC;
+                color: #000000;
+                z-index:10000;
+                }
+            </style>
+            <apex:slds />
+            
+        </head>
+        
+        <body class="slds-scope">
+            
+            <apex:form id="Formid">
+                <div class="margin">
+                    <div class="header">
+                        <div class="imageOne">  
+                            <apex:image value="{!$Resource.MatchyLogo}" width="40%" />
+                        </div>
+                        <div class="imageTwo">   
+                            <apex:image value="{!$Resource.Dhruvsoft_Logo}"  width="50%" />
+                        </div>
+                    </div>
+                    <div style="display:{!if(!submitted,"grid","none")}">
+                        <div class="main">
+                            <center><p><b><h1 class="slds-section-title slds-text-align--center" style="background-color:#11b0e6;font-weight:bold;color:white;height:50%;font-size: 20px;">Profile Information</h1></b></p></center> 
+                        </div>
+                        <apex:messages layout="table" styleClass="exceptionText" id="messages" rendered="{!saved}" />
+                        <apex:messages layout="table" styleClass="exceptionText1" id="messages1" rendered="{!!saved}"/>
+                        <hr/>
+                        <apex:pageblock >
+                            
+                            <div class="section" id="accordion">
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-m-top--large">
+                                        
+                                        <h2 class="slds-text-heading--small slds-m-bottom--medium slds-section__title slds-theme_shade"><b>Information</b></h2>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent label">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Full Name</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:outputText value="{!profilew.name}" styleClass="slds-output" id="input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Email</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:outputText value="{!profilew.email}" label="Email" styleClass="slds-output" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Country Code</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.countryCode}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!countryCode}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Mobile</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.phone}" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Gender</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.gender}" style="width:100%; height: 45px" id="gender">
+                                                    <apex:selectOptions value="{!genderValues}"/>
+                                                </apex:selectList>
+                                                <apex:message for="gender" styleClass="locationError" /> <p /> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>  
+                                            <span class="slds-form-element__label"><b>Looking for Gender</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.lookingForGender}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!lookingGenderValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>DOB</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.dob}" label="Email" styleClass="slds-input" type="date" style="width:100%; height: 45px" required="true"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Birth Time</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.birthTime}" label="Birth Time" styleClass="slds-input" type="time" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Place of Birth</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.placeOfBirth}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Marital Status</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.maritalStatus}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!maritalStatusValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Sexuality</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.sexuality}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!sexualityValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Zodiac</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.zodiac}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!zodiacValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Does He/She/They have children?</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:actionRegion >
+                                                <apex:selectList id="pick1" multiselect="false" size="1" styleClass="slds-select" value="{!profilew.havingChildren}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!havingChildrenList}">
+                                                       <!-- <apex:actionFunction action="{!createDependPick}" name="generateDependPick" reRender="pick2" />-->
+                                                    </apex:selectOptions>
+                                                       <apex:actionSupport event="onchange" action="{!createDependPick}" reRender="pick2,values"/>
+                                                </apex:selectList>
+                                                    </apex:actionRegion>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>No of Children</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList id="pick2" multiselect="false" size="1" styleClass="slds-select" disabled="{!shouldRender}"  value="{!profilew.noOfChildren}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!noOfChildrenList}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Challenges</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.challenges}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!challengesValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-m-top--large">
+                                        <h2 class="slds-text-heading--small slds-m-bottom--medium slds-section__title slds-theme_shade"><b>Address</b></h2>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-p-horizontal--small slds-size--1-of-1">   
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Lives In (Street)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:input value="{!profilew.livesInStreet}" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Lives In (City)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:input value="{!profilew.livesInCity}" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Lives In (Country/Territory)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:actionRegion >
+                                                        <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.livesInCountry}" style="width:100%; height: 45px" id="countryPick">
+                                                            <apex:selectOptions value="{!livesInCountryValues}"/>
+<!--<apex:actionFunction action="{!controllingToDependentValues}" name="getDependentCountry" reRender="statePick" />-->
+                                                       
+                                                                    <apex:actionSupport action="{!controllingToDependentValues}" event="onchange" reRender="statePick,values,stateCodeList"/>
+ </apex:selectList>
+                                                        </apex:actionRegion>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Lives In (State/Province)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.livesInStateCode}" style="width:100%; height: 45px" id="statePick">
+                                                            <apex:selectOptions value="{!stateCodeList}"/>
+                                                        </apex:selectList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Lives In (ZIP/Postal Code)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:input value="{!profilew.livesInPostalCode}"  styleClass="slds-input" style="width:100%; height: 45px"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-p-horizontal--small slds-size--1-of-1">
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Living with Family</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.livingWithFamily}" style="width:100%; height: 45px">
+                                                            <apex:selectOptions value="{!livingWithFamilyValues}"/>
+                                                        </apex:selectList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-p-horizontal--small slds-size--1-of-1">   
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Family Lives In (Street)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:input value="{!profilew.familyStreet}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                                
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Family Lives In (City)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:input value="{!profilew.familyCity}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Family Lives In (Country/Territory)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:actionRegion >
+                                                        <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.familyCountryCode}"  style="width:100%; height: 45px" id="familyCountry">
+                                                            <!--<apex:actionFunction action="{!familyControllingToDependentValues}" name="getfamilyDependentCountry" reRender="familyState" />-->
+                                                            <apex:selectOptions value="{!familyCountryValues}"/>
+                                                        
+                                                            <apex:actionSupport action="{!familyControllingToDependentValues}" event="onchange" reRender="familyState,values"/>
+                                                            </apex:selectList>
+                                                            </apex:actionRegion>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Family Lives In (State/Province)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.familyStateCode}" id="familyState" style="width:100%; height: 45px">
+                                                            <apex:selectOptions value="{!familyStateCodeList}"/>
+                                                        </apex:selectList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                                <div class="slds-form-element slds-hint-parent">
+                                                    <span class="slds-form-element__label"><b>Family Lives In (ZIP/Postal Code)</b></span>
+                                                    <div class="slds-form-element__control">
+                                                        <apex:input value="{!profilew.familyPostalCode}" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-m-top--large">
+                                        <h2 class="slds-text-heading--small slds-m-bottom--medium slds-section__title slds-theme_shade"><b>Educational/Professional</b></h2>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Highest Qualification</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.highestQualification}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!highestQualificationValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>College/University Name</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.collegeUniversityName}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Working with</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.workingWith}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!workingWithValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Company Name(Current)</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.companyName}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2" >
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Profession</b>
+                                                <div class="slds-form-element__icon">
+                                                    <button class="slds-button slds-button_icon slds-button slds-button_icon" aria-describedby="help" aria-disabled="true" title="Help">
+                                                        <svg class="slds-button__icon" aria-hidden="true">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                 xlink:href="/apexpages/slds/latest/assets/icons/action-sprite/svg/symbols.svg#info">
+                                                            </use>
+                                                        </svg>
+                                                        <span class="slds-assistive-text">Help</span>
+                                                    </button>
+                                                    <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hide" role="tooltip" id="help" style="position:absolute;top:-50px;left:-16px;width:300px; height: 45px">
+                                                        <div class="slds-popover__body">{!$ObjectType.Match_Maker__Profile__c.fields.Match_Maker__Professional_Area__c.InlineHelpText}</div>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.professionalArea}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px" required="true"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <div class = "requiredInput">
+                                                <div class = "requiredBlock"></div>
+                                                <span style="Color:red;font-size: 150%">*</span>
+                                                <span class="slds-form-element__label"><b>Income (Annually)</b></span>
+                                                <div class="slds-form-element__control">
+                                                    <apex:input value="{!profilew.income}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px" required="true" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-m-top--large">
+                                        <h2 class="slds-text-heading--small slds-m-bottom--medium slds-section__title slds-theme_shade"><b>Religion/ Ethnicity</b></h2>
+                                    </div> 
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Religion</b></span>
+                                            <apex:outputPanel styleClass="requiredInput" layout="block">
+                                                <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                                                <div class="slds-form-element__control">
+                                                    <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.religion}" style="width:100%; height: 45px">
+                                                        <apex:selectOptions value="{!religionValues}"/>
+                                                    </apex:selectList>
+                                                </div>
+                                            </apex:outputPanel>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Other Religion</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.otherReligion}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Sub Religion</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.subReligion}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Mother Tongue</b>
+                                                <div class="slds-form-element__icon">
+                                                    <button class="slds-button slds-button_icon slds-button slds-button_icon" aria-describedby="help" aria-disabled="true" title="Help">
+                                                        <svg class="slds-button__icon" aria-hidden="true">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                 xlink:href="/apexpages/slds/latest/assets/icons/action-sprite/svg/symbols.svg#info">
+                                                            </use>
+                                                        </svg>
+                                                        <span class="slds-assistive-text">Help</span>
+                                                    </button>
+                                                    <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-hide" role="tooltip" id="help" style="position:absolute;top:-50px;left:-16px;width:300px; height: 45px">
+                                                        <div class="slds-popover__body">{!$ObjectType.Match_Maker__Profile__c.fields.Match_Maker__Community_Mother_Tounge__c.InlineHelpText}</div>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.motherTongue}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>                                     
+                                </div>
+                                
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-m-top--large">
+                                        <h2 class="slds-text-heading--small slds-m-bottom--medium slds-section__title slds-theme_shade"><b>Attributes/Lifestyle</b></h2>
+                                    </div> 
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Body Type</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.bodyType}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!bodyTypeValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Blood Group</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.bloodGroup}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!bloodGroupValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Height</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.height}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!heightValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Weight</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.weight}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!weightValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Does Smoke?</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.smoke}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!smokeValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Alcohol</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.drinks}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!drinkValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Diet</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.diet}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!dietValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span style="Color:red;font-size: 150%">*</span>
+                                            <span class="slds-form-element__label"><b>Skin Tone/Complexion</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.skinTone}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!skinToneValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-m-top--large">
+                                        <h2 class="slds-text-heading--small slds-m-bottom--medium slds-section__title slds-theme_shade"><b>Hobbies/Interest</b></h2>
+                                    </div> 
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Hobbies</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.hobbbies}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Interest</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.interest}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Favourite Music</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.music}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Preferred Movies</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.movies}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Favourite Read</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.read}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Favourite Cuisine</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.cuisine}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Sport/Fitness Activities</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.sport}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Preferred Dress Style</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.dress}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-p-horizontal--small slds-size--1-of-1 slds-m-top--large">
+                                        <h2 class="slds-text-heading--small slds-m-bottom--medium slds-section__title slds-theme_shade"><b>Family Information</b></h2>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Father's Occupation</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.fatherStatus}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!fatherStatusValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Mother's Occupation</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.motherStatus}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!motherStatusValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>No of Brothers</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.brother}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>No of Married Brothers</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.marriedBrother}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>No of Sisters</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.sister}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>No of Married Sisters</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:input value="{!profilew.marriedSister}" label="Birth Time" styleClass="slds-input" style="width:100%; height: 45px"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Family Economical Status</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.familyStatus}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!familyEconomicalStatusValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                        <div class="slds-form-element slds-hint-parent">
+                                            <span class="slds-form-element__label"><b>Family Type</b></span>
+                                            <div class="slds-form-element__control">
+                                                <apex:selectList multiselect="false" size="1" styleClass="slds-select" value="{!profilew.familyType}" style="width:100%; height: 45px">
+                                                    <apex:selectOptions value="{!familyTypeValues}"/>
+                                                </apex:selectList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/><br/>
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-p-horizontal--small slds-size--1-of-1 slds-m-top--large">
+                                    <h2 class="slds-text-heading--small slds-m-bottom--medium slds-section__title slds-theme_shade"><b>Upload Files</b></h2>
+                                </div>
+                                <div class="slds-p-horizontal--small slds-size--1-of-1">
+                                    <div class="slds-form-element slds-hint-parent">
+                                        
+                                        <div class="slds-form-element__control">
+                                            <apex:commandButton Value="Add More" action="{!addTextBox}" styleClass="slds-button slds-button_neutral" style="width:150px;background-color: #e7e7e7; color: black" id="addmore"/><br/><br/>
+                                            <apex:repeat value="{!listvalueOfTextBox}" var="item" >
+                                                <div class="slds-grid slds-wrap">
+                                                    <div class="slds-p-horizontal--small slds-size--1-of-2">
+                                                        <div class="slds-form-element slds-hint-parent">
+                                                            <div class="slds-form-element__control">
+                                                                <apex:inputfile value="{!item.file}" filename="{!item.Title}" accept=".png, .jpg, .jpeg" styleClass="input-file" onchange="previewFile(this)" id="input"/>
+                                                                <img id="thumbnil" style="width:20%; margin-top:10px;"  src="" alt="image" reRender="input" value="{!item.img}"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slds-p-horizontal--small slds-size--1-of-8">
+                                                        <div class="slds-form-element slds-hint-parent">
+                                                            <div class="slds-form-element__control">
+                                                                <apex:commandButton value="X" action="{!Del}" style="width:10px; align:center;" Styleclass="slds-button slds-button_text-destructive slds-align_absolute-center del">
+                                                                    <apex:param name="rowToBeDeleted" value="{!item.recCount}" ></apex:param>
+                                                                </apex:commandButton>
+                                                            </div>
+                                                        </div>
+                                                    </div>   
+                                                </div>
+                                                <br/>
+                                            </apex:repeat>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="footer">
+                                <div class="slds-button slds-clearfix slds-align_absolute-center">
+                                    <apex:commandButton value="Save" action="{!doSave}"  style="width:80px;" styleClass="slds-button slds-button_brand" rendered="{!!submitted}"  disabled="{!submitted};" onclick="return checkFileSize();"/>
+                                    <apex:commandButton value="Submit" action="{!doSubmit}" styleClass="slds-button slds-button_brand" rendered="{!!submitted}" disabled="{!!saved}" style="width:80px;" />                         
+                                </div><br/>
+                                <center><p>Managed by: Dhruvsoft Service Pvt,www.dhruvsoft.com </p></center>
+                            </div> <br/> <br/> 
+                        </apex:pageblock>
+                        <br/><br/><br/>
+                    </div>
+                    <div class="slds-col slds-col--padded slds-size--1-of-1 slds-medium-size--3-of-6 slds-large-size--6-of-12 slds-m-top--medium slds-align_absolute-center" style="display:{!if(submitted,"grid","none")}">
+                        <div class="sub">
+                            <h1><b>Form already submitted</b></h1>
+                        </div>
+                    </div>   
+                </div>              
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

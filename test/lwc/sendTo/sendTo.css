@@ -1,0 +1,21 @@
+.input:focus {
+    outline-width: 0;
+}
+.THIS .slds-dropdown {
+    overflow: initial;
+    height: auto;
+}
+.THIS .slds-dropdown_fluid{
+    height: auto;
+}
+.slds-scrollable_y{
+    
+    max-height: calc(((0.8125rem * 1.5) + 1rem) * 5) !important;
+}
+.scrollable{
+    overflow-x: hidden;
+    overflow-y: initial;
+    width: 100%; 
+    height: 100%%; 
+   
+}

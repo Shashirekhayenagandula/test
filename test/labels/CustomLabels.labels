@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Address</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Address</shortDescription>
+        <value>Address</value>
+    </labels>
+    <labels>
+        <fullName>Attributes_Lifestyle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Attributes/Lifestyle</shortDescription>
+        <value>Attributes/Lifestyle</value>
+    </labels>
+    <labels>
+        <fullName>Bio_Data</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Bio Data</shortDescription>
+        <value>Profile</value>
+    </labels>
+    <labels>
+        <fullName>Educational_Professional_Information</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Educational/Professional Information</shortDescription>
+        <value>Educational/Professional Information</value>
+    </labels>
+    <labels>
+        <fullName>Hobbies_Interests</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hobbies/Interests</shortDescription>
+        <value>Hobbies/Interests</value>
+    </labels>
+    <labels>
+        <fullName>Personal_Information</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Personal Information</shortDescription>
+        <value>Personal Information</value>
+    </labels>
+    <labels>
+        <fullName>Photo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Photo</shortDescription>
+        <value>Photo</value>
+    </labels>
+    <labels>
+        <fullName>Religion_Ethnicity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Religion/Ethnicity</shortDescription>
+        <value>Religion/Ethnicity</value>
+    </labels>
+</CustomLabels>

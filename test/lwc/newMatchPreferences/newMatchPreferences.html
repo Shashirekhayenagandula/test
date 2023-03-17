@@ -1,0 +1,141 @@
+<template>
+    <template if:true={showMsg2}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                   <button class="slds-button  slds-button_icon slds-modal__close slds-button_icon-inverse" title="close this window" onclick={handelCancel}>
+                        <lightning-icon icon-name="utility:close" class="my-icon" size="x-small" >
+                        </lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button> 
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate slds-text-heading--medium">New Match Preference</h2>
+                </header>
+                <div class="slds-modal__content" id="modal-content-id-1">
+                    
+
+                       <lightning-record-edit-form object-api-name="Match_Maker__Match_Preference__c" onsuccess={handelSuccess} onsubmit ={handleSubmit} >
+                          
+                        <div class="innerPadding">  
+                                <p class="slds-section__title slds-theme_shade">Information</p>
+                                <lightning-layout multiple-rows="true" class="content">
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-output-field field-name='Name' class="slds-p-horizontal_x-small"></lightning-output-field>  
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Profile__c' value={parentId} class="slds-p-horizontal_x-small"></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                     <lightning-input-field field-name='Match_Maker__Min_Age__c' class="slds-p-horizontal_x-small" onchange={minAge} required></lightning-input-field>
+                                     <div if:true={errorBool} class="slds-text-color_error"><br></div></lightning-layout-item>
+                                <lightning-layout-item  size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Max_Age__c' class="slds-p-horizontal_x-small" onchange={maxAge} required></lightning-input-field>
+                                    <div if:true={errorBool} class="slds-text-color_error">{ageError}</div></lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                   <lightning-input-field field-name='Match_Maker__Min_Height__c' class="slds-p-horizontal_x-small" onchange={minHeight} required></lightning-input-field>
+                                   <div if:true={errorBool} class="slds-text-color_error"><br></div></lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                   <lightning-input-field field-name='Match_Maker__Max_Height__c' class="slds-p-horizontal_x-small" onchange={maxHeight} required></lightning-input-field>
+                                   <div if:true={errorBool} class="slds-text-color_error">{heightError}</div></lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Having_Children__c' class="slds-p-horizontal_x-small" required></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__No_of_Children__c' class="slds-p-horizontal_x-small"></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Material_Status__c' class="slds-p-horizontal_x-small" required></lightning-input-field>
+                                 </lightning-layout-item>
+                                 <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Zodiac__c' class="slds-p-horizontal_x-small" required></lightning-input-field>
+                                 </lightning-layout-item>
+                                <lightning-layout-item  size="12" small-device-size="6" medium-device-size="12" large-device-size="12">
+                                    <lightning-input-field field-name='Match_Maker__What_s_your_expectation__c' class="slds-p-horizontal_x-small"></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="12">
+                                    <lightning-input-field field-name='Match_Maker__Description__c' class="slds-p-horizontal_x-small"></lightning-input-field>
+                                </lightning-layout-item>
+                             </lightning-layout> <br/>
+
+                             <p class="slds-section__title slds-theme_shade">Education/Professional Information</p>
+                             <lightning-layout multiple-rows="true" class="content">
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Highest_Qualification__c' required></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Working_with__c' required></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">    
+                                    <lightning-input-field field-name='Match_Maker__Professional_Area__c' required></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Annual_Income__c' required></lightning-input-field>
+                                </lightning-layout-item>
+                             </lightning-layout> <br/>
+
+                             <p class="slds-section__title slds-theme_shade">Religion and Ethinicity</p>
+                             <lightning-layout multiple-rows="true" class="content">
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Religion__c' required></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Mother_Tongue__c'></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Ethinicity__c'></lightning-input-field>
+                                </lightning-layout-item>
+                             </lightning-layout> <br/>
+
+                             <p class="slds-section__title slds-theme_shade">Other Details</p>
+                             <lightning-layout multiple-rows="true" class="content">
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Does_Smoke__c'></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Alcohol__c'></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Diet__c' required></lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                                    <lightning-input-field field-name='Match_Maker__Skin_Tone_Complexion__c' required></lightning-input-field>
+                                </lightning-layout-item>
+                             </lightning-layout>
+                             <p class="slds-section__title slds-theme_shade">System Information</p>
+                             <lightning-layout multiple-rows="true" class="content">
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="12">
+                             <lightning-output-field field-name='OwnerId'></lightning-output-field>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        </div>
+                                <footer class="slds-modal__footer slds-clearfix slds-align_absolute-center slds-docked-form-footer stickyFooter bottomfooter" style="padding-top:6px;padding-bottom:6px;">
+                                    <lightning-button variant="neutral" type="cancel" label="Cancel" onclick={handelCancel} style="margin:5px"></lightning-button>
+                                    <lightning-button variant="brand" type="submit" label="Save" onclick={validateFields} disabled={saveBool}></lightning-button>
+                                </footer>
+                             
+                            
+                        </lightning-record-edit-form>
+                </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>
+
+<template if:true={showMsg}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+           <!-- modal body start -->
+           <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                 <p style="text-align:center;font-size:medium;"><b>We cannot create More Than One Match Preference record for Profile</b></p>
+           </div>
+ 
+           <!-- modal footer start-->
+           <footer class="slds-modal__footer">
+              <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+           </footer>
+        
+        </div>
+     </section>
+     <div class="slds-backdrop slds-backdrop_open"></div>
+
+</template>
+</template>

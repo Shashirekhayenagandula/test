@@ -1,0 +1,233 @@
+<template>
+  <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container">
+          <header class="slds-modal__header">
+                 <button class="slds-button  slds-button_icon slds-modal__close slds-button_icon-inverse" title="close this window" onclick={handelCancel}>
+                      <lightning-icon icon-name="utility:close" class="my-icon" size="x-small" >
+                      </lightning-icon>
+                      <span class="slds-assistive-text">Close</span>
+                  </button> 
+                  <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate slds-text-heading--medium">New Invoice</h2>
+              </header>
+              <div class="slds-modal__content" id="modal-content-id-1">
+                      
+
+                     <lightning-record-edit-form record-id={recordId} object-api-name="Match_Maker__Invoice__c" data-id="invoiceForm"  onsuccess={handelInvoiceSaveSuccess}>
+                      <lightning-messages></lightning-messages>
+                      <div class="innerPadding">  
+                          <p class="slds-section__title slds-theme_shade">Information</p>
+                          <lightning-layout multiple-rows="true" class="content">
+                             <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                               <lightning-input-field field-name='Match_Maker__Full_Name__c' class="slds-p-horizontal_x-small" value={invc.Match_Maker__Full_Name__c} onchange={invoiceChange}></lightning-input-field>  
+                             </lightning-layout-item> 
+                             <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                               <lightning-input-field field-name='Match_Maker__Contact__c'   class="slds-p-horizontal_x-small" value={invc.Match_Maker__Contact__c} ></lightning-input-field>  
+                             </lightning-layout-item> 
+                             
+                             <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                             <!--  <lightning-input-field field-name='Match_Maker__Profile__c'   class="slds-p-horizontal_x-small" ></lightning-input-field> -->   
+                               <c-profile-lookup icon-name="standard:visits"
+                                     s-object-api-name="Match_Maker__Profile__c"
+                                     label="Profile"
+                                     onlookupupdate={lookupRecord} 
+                                     default-record-id={parentId}
+                                     placeholder="search..."></c-profile-lookup> 
+                                     <!-- <c-profile-lookup-parent s-object-api-name="Match_Maker__Profile__c" default-record-id={parentId}></c-profile-lookup-parent> -->
+                                     <!-- <c-profile-lookup obj-name="Match_Maker__Profile__c"  default-record-id={parentId} search-placeholder="Search Profiles" icon-name="standard:account" onlookupselected={handleSelection}> </c-profile-lookup> -->
+                                     <!-- <c-profile-lookup onselected={myLookupHandle} default-record-id={parentId}></c-profile-lookup> -->
+                             </lightning-layout-item>
+                             <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                              <lightning-input-field field-name='Match_Maker__Phone__c'   class="slds-p-horizontal_x-small" value={invc.Match_Maker__Phone__c} onchange={invoiceChange}></lightning-input-field>  
+                            </lightning-layout-item>
+                             <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                               <lightning-input-field field-name='Match_Maker__Email__c'   class="slds-p-horizontal_x-small" value={invc.Match_Maker__Email__c} onchange={invoiceChange}></lightning-input-field>  
+                             </lightning-layout-item>
+                             <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                               <lightning-input-field field-name='Match_Maker__Date__c'   class="slds-p-horizontal_x-small" value={invc.Match_Maker__Date__c} onchange={invoiceChange}></lightning-input-field>  
+                             </lightning-layout-item>
+                            
+                             <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                               <lightning-input-field field-name='Match_Maker__Time__c' class="slds-p-horizontal_x-small" value={invc.Match_Maker__Time__c} onchange={invoiceChange}></lightning-input-field>  
+                             </lightning-layout-item>
+                             <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                              <lightning-input-field field-name='Match_Maker__Payment_Method__c' class="slds-p-horizontal_x-small" value={invc.Match_Maker__Payment_Method__c} onchange={invoiceChange}></lightning-input-field>  
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                              <lightning-input-field field-name='Match_Maker__Payment_Status__c' class="slds-p-horizontal_x-small" value={invc.Match_Maker__Payment_Status__c} onchange={invoiceChange} required></lightning-input-field>  
+                            </lightning-layout-item>
+                             <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="6">
+                               <lightning-input-field field-name='Match_Maker__Line_Item_Count__c'  value={invc.Match_Maker__Line_Item_Count__c} onchange={invoiceChange} class="slds-p-horizontal_x-small" readonly="true"></lightning-input-field>  
+                             </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="6"  medium-device-size="12" large-device-size="6">  
+                               <!-- <lightning-input-field data-field="Address" field-name='Match_Maker__Address__c'   class="slds-p-horizontal_x-small"></lightning-input-field>  -->
+                              <!-- <lightning-input-address  
+                               address-label="Address"
+                               street-label="Street"
+                               city-label="City"
+                               country-label="Country"
+                               province-label="State/ Province"
+                               postal-code-label="Zip/ Postal Code"
+                               onchange={addressInputChange}
+                               show-address-lookup="true"
+                               address-lookup-placeholder="Search Google addresses...">
+                               </lightning-input-address> --> 
+                               <lightning-layout multiple-rows> 
+                                <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="12">
+                              <lightning-input-field field-name='Match_Maker__Address__Street__s' value={invc.Match_Maker__Address__Street__s} onchange={invoiceChange} required ></lightning-input-field> </lightning-layout-item>
+                               <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="8">
+                              <lightning-input-field field-name='Match_Maker__Address__City__s' value={invc.Match_Maker__Address__City__s} onchange={invoiceChange} required></lightning-input-field> </lightning-layout-item>
+                              <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="4">
+                              <lightning-input-field field-name='Match_Maker__Address__StateCode__s' value={invc.Match_Maker__Address__StateCode__s} onchange={invoiceChange} required ></lightning-input-field>  </lightning-layout-item>
+                              <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="8">
+                              <lightning-input-field field-name='Match_Maker__Address__PostalCode__s' value={invc.Match_Maker__Address__PostalCode__s} onchange={invoiceChange}  required></lightning-input-field>  </lightning-layout-item>
+                              <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="4">
+                              <lightning-input-field field-name='Match_Maker__Address__CountryCode__s' value={invc.Match_Maker__Address__CountryCode__s} onchange={invoiceChange} required ></lightning-input-field>   </lightning-layout-item>
+                            </lightning-layout>
+                               </lightning-layout-item>   
+                          </lightning-layout>  
+
+                       
+                                               <!--AddRow start-->
+                          <lightning-card>
+                              <h3 slot="title" class="slds-align_absolute-center">
+                                  <lightning-icon icon-name="standard:timesheet" alternative-text="Event" size="small"></lightning-icon>
+                                  &nbsp; Add Line Item
+                              </h3>
+
+                              <lightning-record-edit-form object-api-name="Match_Maker__Invoice_Line_Item__c" data-id="lineItemForm">
+                                <lightning-messages></lightning-messages>
+                                  <div class="slds-m-around_medium">  
+                                      <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                          <thead>
+                                              <tr class="slds-line-height_reset">
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="#">#</div>
+                                                  </th>
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="Item">Item</div>
+                                                  </th>
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="Rate">Rate</div>
+                                                  </th>
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="Quantity">Quantity</div>
+                                                  </th>
+                                                  <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Line Total">Line Total</div>
+                                                </th>
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="Discount">Discount(%)</div>
+                                                  </th>
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="Discount Amount">Discount Amount</div>
+                                                  </th>
+                                                  <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Line Total After Discount">Line total After Discount</div>
+                                                </th>
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="Tax">Tax(%)</div>
+                                                  </th>
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="Tax Amount">Tax Amount</div>
+                                                  </th>
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="Line Item Total">Line Item Total</div>
+                                                  </th>
+                                                  <th class="" scope="col">
+                                                      <div class="slds-truncate" title="Delete">Delete</div>
+                                                  </th>
+                                              </tr> 
+                                          </thead> 
+                                      <tbody>
+                                     <template for:each={itemList} for:item="item" for:index="index">  
+                                        <tr class="inputRows" key={item.id}>
+                                          <td scope="row"><c-serial-number-comp index={index}></c-serial-number-comp></td>
+                                          <td scope="row">
+                                          <lightning-input-field field-name="Match_Maker__Items__c" name={index} value={item.Match_Maker__Items__c} onchange={handelOnchangeItem} variant="label-hidden" required>
+                                              </lightning-input-field>                                            </td>
+                                          <td scope="row">
+                                              <lightning-input-field field-name="Match_Maker__Amount__c" name={index} onchange={rateQtyChange} value={item.Match_Maker__Amount__c} variant="label-hidden" >
+                                              </lightning-input-field>                                            </td>
+                                          <td >
+                                              <lightning-input-field field-name="Match_Maker__Quantity__c" value={item.Match_Maker__Quantity__c} name={index} onchange={rateQtyChange} variant="label-hidden" >
+                                              </lightning-input-field>                                            </td> 
+                                          <td >
+                                              <lightning-input-field field-name="Match_Maker__Line_Total__c" name={index} value={item.Match_Maker__Line_Total__c} variant="label-hidden" readonly="true">
+                                              </lightning-input-field>                                            </td>       
+                                          <td >
+                                              <lightning-input-field field-name="Match_Maker__Discount__c" name={index} onchange={disChange} value={item.Match_Maker__Discount__c} variant="label-hidden" >
+                                              </lightning-input-field>                                            </td>
+                                          <td >
+                                              <lightning-input-field field-name="Match_Maker__Discount_Amount__c" name={index} value={item.Match_Maker__Discount_Amount__c} variant="label-hidden" readonly="true">
+                                              </lightning-input-field>                                            </td> 
+                                          <td >
+                                              <lightning-input-field field-name="Match_Maker__Line_Total_After_Discount__c" value={item.Match_Maker__Line_Total_After_Discount__c} variant="label-hidden" readonly="true">
+                                              </lightning-input-field>                                            </td>       
+                                          <td scope="row">
+                                              <lightning-input-field field-name="Match_Maker__Taxs__c" onchange={taxChange} name={index} value={item.Match_Maker__Taxs__c} variant="label-hidden" >
+                                              </lightning-input-field>                                            </td> 
+                                          <td >
+                                              <lightning-input-field field-name="Match_Maker__Tax_Amount__c" value={item.Match_Maker__Tax_Amount__c} variant="label-hidden" readonly="true">
+                                              </lightning-input-field>                                            </td> 
+                                          <td >
+                                              <lightning-input-field field-name="Match_Maker__Line_Item_Total__c" value={item.Match_Maker__Line_Item_Total__c} variant="label-hidden" readonly="true">
+                                              </lightning-input-field>                                            </td>  
+                                          <td >
+                                              <lightning-icon icon-name="action:delete" name={index}  access-key={item.id} id={index} alternative-text="Delete Row" size="small" title="Delete Row" onclick={removeRow}></lightning-icon>                                            
+                                          </td>
+                                        </tr>
+                                     </template>
+                                   </tbody>
+                                   </table>
+                                  </div>   <!-- <lightning-input-field field-name="Match_Maker__Invoice__c" data-id="lineInvoiceId" class="hidden" variant="label-stacked">
+                                  </lightning-input-field>  -->
+                              </lightning-record-edit-form>
+                              
+                              &nbsp;&nbsp; <lightning-button icon-name="action:new" variant="success" label="Add Line Item"  onclick={addRow} class="margin-left"></lightning-button>
+                                <!--this input field hold invoiceId and hidden in Line Item UI-->
+                            <!-- <lightning-input-field field-name="Match_Maker__Invoice__c" data-id="lineInvoiceId" class="hidden" variant="label-stacked">
+                              </lightning-input-field>  --> 
+                              <p></p>
+                          </lightning-card>  
+                                                             <!--stop -->
+                                   <div>
+                                    <lightning-layout multiple-rows="true" >
+                                    <lightning-layout-item size="10"></lightning-layout-item>
+                                      <lightning-layout-item size="1">
+                                       <lightning-input-field field-name='Match_Maker__Total_Amount__c' value={invc.Match_Maker__Total_Amount__c} onchange={invoiceChange} class="slds-p-horizontal_x-small" readonly="true"></lightning-input-field>  
+                                      </lightning-layout-item>
+                                      <lightning-layout-item size="1">
+                                        <lightning-input-field field-name='Match_Maker__Total_Tax_Amount__c' value={invc.Match_Maker__Total_Tax_Amount__c} onchange={invoiceChange} class="slds-p-horizontal_x-small" readonly="true"></lightning-input-field>  
+                                      </lightning-layout-item>
+                                    <!-- <lightning-layout-item size="10"></lightning-layout-item>
+                                      <lightning-layout-item size="2">
+                                        <lightning-input-field field-name='Match_Maker__Total_Tax_Amount__c' class="slds-p-horizontal_x-small"></lightning-input-field>  
+                                      </lightning-layout-item>  --> 
+                                      <lightning-layout-item size="10"></lightning-layout-item>
+                                      <lightning-layout-item size="1">
+                                        <lightning-input-field field-name='Match_Maker__Total_Discount_Amount__c' value={invc.Match_Maker__Total_Discount_Amount__c}  onchange={invoiceChange} class="slds-p-horizontal_x-small" readonly="true"></lightning-input-field>  
+                                      </lightning-layout-item>  
+                                      <lightning-layout-item size="1">
+                                        <lightning-input-field field-name='Match_Maker__Net_Invoice_Amount__c' value={invc.Match_Maker__Net_Invoice_Amount__c} onchange={invoiceChange} class="slds-p-horizontal_x-small" readonly="true"></lightning-input-field>  
+                                      </lightning-layout-item>  
+                                     <!-- <lightning-layout-item size="10"></lightning-layout-item>
+                                      <lightning-layout-item size="2">
+                                        <lightning-input-field field-name='Match_Maker__Net_Invoice_Amount__c' class="slds-p-horizontal_x-small"></lightning-input-field>  
+                                      </lightning-layout-item>  --> 
+                                   </lightning-layout>          
+                                   </div>
+                                                                      
+
+                      </div>
+                       <footer class="slds-modal__footer slds-clearfix slds-align_absolute-center" style="padding-top:6px;padding-bottom:6px;" if:false={showLine}>
+                          <lightning-button variant="neutral" type="cancel" label="Cancel" onclick={handelCancel} style="margin:5px"></lightning-button>
+                          <lightning-button variant="brand" label="Save" onclick={invoiceAndLineSave} disabled={saveBool}></lightning-button>
+                      </footer>
+                                    
+                      </lightning-record-edit-form>
+              </div>
+      </div>
+  </section>
+
+  <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

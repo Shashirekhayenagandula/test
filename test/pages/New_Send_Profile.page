@@ -1,0 +1,315 @@
+<apex:page controller="EmailClass" renderAs="pdf" showHeader="false" sidebar="false" applyBodyTag="false" standardStylesheets="false" action="{!getProfileInformation}">
+
+    <head>
+        
+            <style  type="text/css"> 
+				@page {
+                		 size: 8.5in 11in;
+					}
+              
+				body
+        {
+          background-image: url("{!$Resource.Background_Image_Send_Profile}") !important; 
+        background-repeat: no-repeat;
+    background-position: center;
+                background-size: 1000px 1000px;
+        background-attachment: fixed;
+        margin:0px !important;
+        }
+       
+                .main{
+                color:blue;
+                }
+                table{
+                	 width: 100%;
+            font-family: serif;
+            border-collapse: collapse;
+            -fs-table-paginate: paginate;
+            border:none;
+                }
+               
+                td {
+  					padding: 4px;
+  					text-align: left;
+                	
+                	
+					}
+                h3
+                {
+                	
+                	text-decoration: underline;
+                	
+                }
+                .td1
+                {
+              		
+                	vertical-align:top;width:35%;
+                }
+                .td2
+                {
+                 
+                vertical-align:top;width:65%;
+                }
+                .td3
+                {
+                
+                vertical-align:top;width:0px;
+                }
+                .img{
+                   text-align: center;
+                }
+                
+	}
+        </style>
+    </head>
+    <body>
+   
+    <apex:form >
+    <apex:pageBlock >
+        <div class="main">
+            <center><h2>{!$Label.Match_Maker__Bio_Data}</h2></center>
+        </div>
+      
+        <table>
+         <div class="header">
+             <h3><strong>{!$Label.Match_Maker__Personal_Information}:</strong> </h3>
+            </div>	
+    		
+            <tr style="display: {!IF((ISBLANK(profile.Name)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Name.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Name}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.Gender__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Gender__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Gender__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Marital_Status__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Marital_Status__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Marital_Status__c}"/></td>
+            </tr>
+           <tr style="display: {!IF((ISBLANK(profile.Does_He_She_They_have_children__c)), 'none', 'table-row')};">
+                
+				<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Does_He_She_They_have_children__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Does_He_She_They_have_children__c}"/></td>
+            </tr>
+           <tr style="display: {!IF((ISBLANK(profile.No_of_Children__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.No_of_Children__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.No_of_Children__c}"/></td>
+            </tr>
+              <tr style="display: {!IF((ISBLANK(profile.DOB__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.DOB__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{0,date,dd' 'MMMMM' 'yyyy}">
+    											<apex:param value="{!profile.DOB__c}" /> 
+												</apex:outputText></td>
+            </tr>
+              <tr style="display: {!IF((ISBLANK(profile.Age__c)), 'none', 'table-row')};">
+             	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Age__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Age__c}"/> yrs</td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Place_of_Birth__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Place_of_Birth__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Place_of_Birth__c}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.Birth_Time__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Birth_Time__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2">
+						{!HOUR(profile.Birth_Time__c)}:
+						<apex:outputText value="{0,number,00}">
+    					<apex:param value="{!Minute(profile.Birth_Time__c)}" />
+						</apex:outputText> (24-Hour Time Format)</td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Zodiac__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Zodiac__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Zodiac__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Challenges__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Challenges__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Challenges__c}"/></td>
+            </tr>
+            <div class="header">
+             <h3><strong>{!$Label.Match_Maker__Address}:</strong> </h3>
+            </div>	
+             <tr style="display: {!IF((ISBLANK(profile.Living_with_Family__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Living_with_Family__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Living_with_Family__c}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.Lives_In__City__s)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Lives_In__City__s.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Lives_In__City__s}"/></td>
+            </tr>
+           <tr style="display: {!IF((ISBLANK(profile.Lives_In__StateCode__s)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Lives_In__StateCode__s.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Lives_In__StateCode__s}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.Lives_In__CountryCode__s)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Lives_In__CountryCode__s.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Lives_In__CountryCode__s}"/></td>
+            </tr>
+             <div class="header">
+             <h3><strong>{!$Label.Match_Maker__Educational_Professional_Information}:</strong> </h3>
+            </div>	
+           <tr style="display: {!IF((ISBLANK(profile.Highest_Qualification__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Highest_Qualification__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Highest_Qualification__c}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.College_University_Name__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.College_University_Name__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.College_University_Name__c}"/></td>
+            </tr>
+           <tr style="display: {!IF((ISBLANK(profile.Working_with__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Working_with__c.Label}</b></td>
+                 <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Working_with__c}"/></td>
+            </tr>
+           <tr style="display: {!IF((ISBLANK(profile.Company_Name_current__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Company_Name_current__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Company_Name_current__c}"/></td>
+            </tr>
+              <tr style="display: {!IF((ISBLANK(profile.Professional_Area__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Professional_Area__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Professional_Area__c}"/></td>
+            </tr>
+               <tr style="display: {!IF((ISBLANK(profile.Income_yearly__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Income_yearly__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:image url="{!$Resource.Rupee_Symbol}" width="10" height="10"/><apex:outputText value="{!profile.Income_yearly__c}"/></td>
+            </tr>
+            <div class="header">
+             <h3><strong>{!$Label.Match_Maker__Religion_Ethnicity}:</strong> </h3>
+            </div>	
+            <tr style="display: {!IF((ISBLANK(profile.Religion__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Religion__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Religion__c}"/></td>
+            </tr>
+           <tr style="display: {!IF((ISBLANK(profile.Other_Religion__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Other_Religion__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Other_Religion__c}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.Community_Mother_Tounge__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Community_Mother_Tounge__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Community_Mother_Tounge__c}"/></td>
+            </tr>
+            <div class="header">
+             <h3><strong>{!$Label.Match_Maker__Attributes_Lifestyle}:</strong> </h3>
+            </div>	
+              <tr style="display: {!IF((ISBLANK(profile.Skin_Tone_C__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Skin_Tone_C__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Skin_Tone_C__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Body_Type__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Body_Type__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Body_Type__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Height__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Height__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Height__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Weight__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Weight__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Weight__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Your_Diet__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Your_Diet__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Your_Diet__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Blood_Group__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Blood_Group__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Blood_Group__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Smoke__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Smoke__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Smoke__c}"/></td>
+            </tr>
+              <tr style="display: {!IF((ISBLANK(profile.Drinks__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Drinks__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Drinks__c}"/></td>
+            </tr>
+            <div class="header">
+             <h3><strong>{!$Label.Match_Maker__Hobbies_Interests}:</strong> </h3>
+            </div>	
+            <tr style="display: {!IF((ISBLANK(profile.Interest__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Interest__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Interest__c}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.Hobbies__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Hobbies__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Hobbies__c}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.Favourite_Music__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Favourite_Music__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Favourite_Music__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Preferred_Dress_Style__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Preferred_Dress_Style__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Preferred_Dress_Style__c}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.Preferred_Movies__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Preferred_Movies__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Preferred_Movies__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Sport_Fitness_Activities__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Sport_Fitness_Activities__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Sport_Fitness_Activities__c}"/></td>
+            </tr>
+             <tr style="display: {!IF((ISBLANK(profile.Favourite_Criuisne__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Favourite_Criuisne__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Favourite_Criuisne__c}"/></td>
+            </tr>
+            <tr style="display: {!IF((ISBLANK(profile.Favourite_Read__c)), 'none', 'table-row')};">
+            	<td class="td1"><b>{!$ObjectType.Profile__c.Fields.Favourite_Read__c.Label}</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{!profile.Favourite_Read__c}"/></td>
+            </tr>
+        </table>                
+        
+        <div class="header">
+             <h3><strong>{!$Label.Match_Maker__Photo}:</strong> </h3>
+             <center>
+            <br/><br/>
+             <apex:image url="/sfc/servlet.shepherd/version/download/{!fileId}" rendered="{!fileId!='No Image'}" width="300" height="300" alt="No Image"/>
+             <apex:image url="https://www.freeiconspng.com/uploads/no-image-icon-6.png" rendered="{!fileId=='No Image'}" width="300" height="300" alt="No Image"/>
+            
+            </center>
+         </div>	
+       	</apex:pageBlock>
+        </apex:form>
+         
+    </body>
+</apex:page>

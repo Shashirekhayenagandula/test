@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Profile</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Profiles</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age --></label>
+        <name>Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Birth Time --></label>
+        <name>Birth_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Blood Group --></label>
+        <name>Blood_Group__c</name>
+        <picklistValues>
+            <masterLabel>A+</masterLabel>
+            <translation><!-- A+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A-</masterLabel>
+            <translation><!-- A- --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AB+</masterLabel>
+            <translation><!-- AB+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AB-</masterLabel>
+            <translation><!-- AB- --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B+</masterLabel>
+            <translation><!-- B+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B-</masterLabel>
+            <translation><!-- B- --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Disclosed</masterLabel>
+            <translation><!-- Not Disclosed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>O+</masterLabel>
+            <translation><!-- O+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>O-</masterLabel>
+            <translation><!-- O- --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Body Type --></label>
+        <name>Body_Type__c</name>
+        <picklistValues>
+            <masterLabel>Athletic</masterLabel>
+            <translation><!-- Athletic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Average</masterLabel>
+            <translation><!-- Average --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heavy</masterLabel>
+            <translation><!-- Heavy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slim</masterLabel>
+            <translation><!-- Slim --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Challenges --></label>
+        <name>Challenges__c</name>
+        <picklistValues>
+            <masterLabel>Mentally due to an Accident</masterLabel>
+            <translation><!-- Mentally due to an Accident --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mentally from Birth</masterLabel>
+            <translation><!-- Mentally from Birth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physically due to an Accident</masterLabel>
+            <translation><!-- Physically due to an Accident --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physically from Birth</masterLabel>
+            <translation><!-- Physically from Birth --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- College/University Name --></label>
+        <name>College_University_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please mention the native language that best represents your family background --></help>
+        <label><!-- Mother Tongue --></label>
+        <name>Community_Mother_Tounge__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company Name(Current) --></label>
+        <name>Company_Name_current__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Profiles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Country Code --></label>
+        <name>Country_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- DOB --></label>
+        <name>DOB__c</name>
+    </fields>
+    <fields>
+        <label><!-- Does He/She/They have children? --></label>
+        <name>Does_He_She_They_have_children__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes - Living Together</masterLabel>
+            <translation><!-- Yes - Living Together --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes - Not Living Together</masterLabel>
+            <translation><!-- Yes - Not Living Together --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Alcohol --></label>
+        <name>Drinks__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Family Lives In --></label>
+        <name>Family_Lives_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Family Economical Status --></label>
+        <name>Family_Status__c</name>
+        <picklistValues>
+            <masterLabel>Middle Class</masterLabel>
+            <translation><!-- Middle Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rich/Affluent</masterLabel>
+            <translation><!-- Rich/Affluent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upper Class</masterLabel>
+            <translation><!-- Upper Class --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Family Type --></label>
+        <name>Family_Type__c</name>
+        <picklistValues>
+            <masterLabel>Joint Family</masterLabel>
+            <translation><!-- Joint Family --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nuclear Family</masterLabel>
+            <translation><!-- Nuclear Family --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Father&apos;s Occupation --></label>
+        <name>Father_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Favourite Cuisine --></label>
+        <name>Favourite_Criuisne__c</name>
+    </fields>
+    <fields>
+        <label><!-- Favourite Music --></label>
+        <name>Favourite_Music__c</name>
+    </fields>
+    <fields>
+        <label><!-- Favourite Read --></label>
+        <name>Favourite_Read__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gender --></label>
+        <name>Gender__c</name>
+    </fields>
+    <fields>
+        <label><!-- Height --></label>
+        <name>Height__c</name>
+    </fields>
+    <fields>
+        <label><!-- Highest Qualification --></label>
+        <name>Highest_Qualification__c</name>
+        <picklistValues>
+            <masterLabel>Associates Degree</masterLabel>
+            <translation><!-- Associates Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bachelors</masterLabel>
+            <translation><!-- Bachelors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diploma</masterLabel>
+            <translation><!-- Diploma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Doctorate</masterLabel>
+            <translation><!-- Doctorate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineering/Technology</masterLabel>
+            <translation><!-- Engineering/Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High School</masterLabel>
+            <translation><!-- High School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honours Degree</masterLabel>
+            <translation><!-- Honours Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less than high school</masterLabel>
+            <translation><!-- Less than high school --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Masters</masterLabel>
+            <translation><!-- Masters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Graduation</masterLabel>
+            <translation><!-- Post Graduation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade School</masterLabel>
+            <translation><!-- Trade School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Undergraduate</masterLabel>
+            <translation><!-- Undergraduate --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hobbies --></label>
+        <name>Hobbies__c</name>
+    </fields>
+    <fields>
+        <label><!-- Income (Annually) --></label>
+        <name>Income_yearly__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interest --></label>
+        <name>Interest__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lives In --></label>
+        <name>Lives_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Living with Family --></label>
+        <name>Living_with_Family__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Marital Status --></label>
+        <name>Marital_Status__c</name>
+        <picklistValues>
+            <masterLabel>Annulled</masterLabel>
+            <translation><!-- Annulled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Awaiting Divorce</masterLabel>
+            <translation><!-- Awaiting Divorce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Divorced</masterLabel>
+            <translation><!-- Divorced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unmarried</masterLabel>
+            <translation><!-- Unmarried --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Widowed</masterLabel>
+            <translation><!-- Widowed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Mobile --></label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mother&apos;s Occupation --></label>
+        <name>Mother_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Brothers --></label>
+        <name>No_of_Brothers__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Children --></label>
+        <name>No_of_Children__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More than 5</masterLabel>
+            <translation><!-- More than 5 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- No of Married Sisters --></label>
+        <name>No_of_Married_Sisters__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Sisters --></label>
+        <name>No_of_Sisters__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Married Brothers --></label>
+        <name>Number_of_Married_Brother__c</name>
+    </fields>
+    <fields>
+        <label><!-- Looking for Gender --></label>
+        <name>Opposite_Gender__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Religion --></label>
+        <name>Other_Religion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Place of Birth --></label>
+        <name>Place_of_Birth__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Dress Style --></label>
+        <name>Preferred_Dress_Style__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Movies --></label>
+        <name>Preferred_Movies__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter profession name like Software Developer --></help>
+        <label><!-- Profession --></label>
+        <name>Professional_Area__c</name>
+    </fields>
+    <fields>
+        <label><!-- ProfileURL --></label>
+        <name>ProfileURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Religion --></label>
+        <name>Religion__c</name>
+        <picklistValues>
+            <masterLabel>Buddhist</masterLabel>
+            <translation><!-- Buddhist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Christian</masterLabel>
+            <translation><!-- Christian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hindu</masterLabel>
+            <translation><!-- Hindu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jain</masterLabel>
+            <translation><!-- Jain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jewish</masterLabel>
+            <translation><!-- Jewish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Muslim</masterLabel>
+            <translation><!-- Muslim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Religion</masterLabel>
+            <translation><!-- No Religion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parsi</masterLabel>
+            <translation><!-- Parsi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sikh</masterLabel>
+            <translation><!-- Sikh --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spiritual</masterLabel>
+            <translation><!-- Spiritual --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sexuality --></label>
+        <name>Sexuality__c</name>
+        <picklistValues>
+            <masterLabel>Asexual</masterLabel>
+            <translation><!-- Asexual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bisexual</masterLabel>
+            <translation><!-- Bisexual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heterosexual</masterLabel>
+            <translation><!-- Heterosexual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Homosexual</masterLabel>
+            <translation><!-- Homosexual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pansexual</masterLabel>
+            <translation><!-- Pansexual --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Skin Tone/Complexion --></label>
+        <name>Skin_Tone_C__c</name>
+        <picklistValues>
+            <masterLabel>Dark Brown</masterLabel>
+            <translation><!-- Dark Brown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exotic</masterLabel>
+            <translation><!-- Exotic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fair</masterLabel>
+            <translation><!-- Fair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Light Neutral</masterLabel>
+            <translation><!-- Light Neutral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Normal</masterLabel>
+            <translation><!-- Normal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toffee</masterLabel>
+            <translation><!-- Toffee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wheatish</masterLabel>
+            <translation><!-- Wheatish --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Does Smoke? --></label>
+        <name>Smoke__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sport/Fitness Activities --></label>
+        <name>Sport_Fitness_Activities__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Profile</masterLabel>
+            <translation><!-- New Profile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request for Completion</masterLabel>
+            <translation><!-- Request for Completion --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub Religion --></label>
+        <name>Sub_Religion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitted --></label>
+        <name>Submitted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Weight --></label>
+        <name>Weight__c</name>
+        <picklistValues>
+            <masterLabel>101kg to 105kg</masterLabel>
+            <translation><!-- 101kg to 105kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>106kg to 110kg</masterLabel>
+            <translation><!-- 106kg to 110kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>111kg to 115kg</masterLabel>
+            <translation><!-- 111kg to 115kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>116kg to 120kg</masterLabel>
+            <translation><!-- 116kg to 120kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>121kg to 125kg</masterLabel>
+            <translation><!-- 121kg to 125kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>126kg to 130kg</masterLabel>
+            <translation><!-- 126kg to 130kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>131kg to 135kg</masterLabel>
+            <translation><!-- 131kg to 135kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>136kg to 140kg</masterLabel>
+            <translation><!-- 136kg to 140kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>141kg to 145kg</masterLabel>
+            <translation><!-- 141kg to 145kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>146kg to 150kg</masterLabel>
+            <translation><!-- 146kg to 150kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30kg to 35kg</masterLabel>
+            <translation><!-- 30kg to 35kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>36kg to 40kg</masterLabel>
+            <translation><!-- 36kg to 40kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>41kg to 45kg</masterLabel>
+            <translation><!-- 41kg to 45kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>46kg to 50kg</masterLabel>
+            <translation><!-- 46kg to 50kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>51kg to 55kg</masterLabel>
+            <translation><!-- 51kg to 55kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>56kg to 60kg</masterLabel>
+            <translation><!-- 56kg to 60kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>61kg to 65kg</masterLabel>
+            <translation><!-- 61kg to 65kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>66kg to 70kg</masterLabel>
+            <translation><!-- 66kg to 70kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>71kg to 75kg</masterLabel>
+            <translation><!-- 71kg to 75kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>76kg to 80kg</masterLabel>
+            <translation><!-- 76kg to 80kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>81kg to 85kg</masterLabel>
+            <translation><!-- 81kg to 85kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>86kg to 90kg</masterLabel>
+            <translation><!-- 86kg to 90kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>91kg to 95kg</masterLabel>
+            <translation><!-- 91kg to 95kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>96kg to 100kg</masterLabel>
+            <translation><!-- 96kg to 100kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More than 150kg</masterLabel>
+            <translation><!-- More than 150kg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Disclosed</masterLabel>
+            <translation><!-- Not Disclosed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Working with --></label>
+        <name>Working_with__c</name>
+        <picklistValues>
+            <masterLabel>Business/ Self Employed</masterLabel>
+            <translation><!-- Business/ Self Employed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defence/Civil Sector</masterLabel>
+            <translation><!-- Defence/Civil Sector --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government/Public Sector</masterLabel>
+            <translation><!-- Government/Public Sector --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Working</masterLabel>
+            <translation><!-- Not Working --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Private Company</masterLabel>
+            <translation><!-- Private Company --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Diet --></label>
+        <name>Your_Diet__c</name>
+        <picklistValues>
+            <masterLabel>Eggetarian</masterLabel>
+            <translation><!-- Eggetarian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Veg</masterLabel>
+            <translation><!-- Non-Veg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Occasionally Non-Veg</masterLabel>
+            <translation><!-- Occasionally Non-Veg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vegan</masterLabel>
+            <translation><!-- Vegan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vegetarian</masterLabel>
+            <translation><!-- Vegetarian --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Zodiac --></label>
+        <name>Zodiac__c</name>
+        <picklistValues>
+            <masterLabel>Aquarius/Kumbha</masterLabel>
+            <translation><!-- Aquarius/Kumbha --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aries/Mesh</masterLabel>
+            <translation><!-- Aries/Mesh --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancer/Karka</masterLabel>
+            <translation><!-- Cancer/Karka --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capricorn/Makar</masterLabel>
+            <translation><!-- Capricorn/Makar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gemini/Mithuna</masterLabel>
+            <translation><!-- Gemini/Mithuna --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leo/Simha</masterLabel>
+            <translation><!-- Leo/Simha --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Libra/Tula</masterLabel>
+            <translation><!-- Libra/Tula --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pisces/Meena</masterLabel>
+            <translation><!-- Pisces/Meena --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sagittarius/Dhanu</masterLabel>
+            <translation><!-- Sagittarius/Dhanu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scorpio/Vrishchik</masterLabel>
+            <translation><!-- Scorpio/Vrishchik --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taurus/Vrishabh</masterLabel>
+            <translation><!-- Taurus/Vrishabh --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virgo/Kanya</masterLabel>
+            <translation><!-- Virgo/Kanya --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Profile Layout</layout>
+        <sections>
+            <label><!-- Address --></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label><!-- Attributes/Lifestyle --></label>
+            <section>Attributes/Lifestyle</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Educational/Professional --></label>
+            <section>Educational/Professional</section>
+        </sections>
+        <sections>
+            <label><!-- Family Information --></label>
+            <section>Family Information</section>
+        </sections>
+        <sections>
+            <label><!-- Hobbies/Interest --></label>
+            <section>Hobbies/Interest</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Religion/ Ethnicity --></label>
+            <section>Religion/ Ethnicity</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Send Profile --></label>
+        <name>Send_Profile</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send Site Form --></label>
+        <name>Send_Site_Form</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- No. of Brothers must be greater than no. of married brothers --></errorMessage>
+        <name>Brothers</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Minimum age should be 16 yrs --></errorMessage>
+        <name>DOB</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Enter Valid Phone Number --></errorMessage>
+        <name>Phone</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Enter Other Religion Text Field --></errorMessage>
+        <name>Religion</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No. of Sister must great than no. of Married Sister --></errorMessage>
+        <name>Sister</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Enter Number of Children --></errorMessage>
+        <name>children</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Profile_Update --></label>
+        <name>Profile_Update</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Request_Information --></label>
+        <name>Request_Information</name>
+    </webLinks>
+</CustomObjectTranslation>

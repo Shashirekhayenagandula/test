@@ -1,0 +1,77 @@
+.container{
+  text-align: center;
+  max-height: 300px;
+  max-width: 300px;
+  background-color: black;
+}
+
+
+.carosuel{
+ 
+overflow: hidden;
+background-color: black;
+}
+
+
+.img {
+  max-width: 100%;
+  height: auto;
+ 
+  max-height: 450px;
+}
+
+.slds-carousel__indicator-action .slds-is-active{
+
+border-color:blue!important;
+}
+.slds-carousel__indicator-action .slds-is-active:hover{
+  border-color:brown;
+}
+.carousel-indicators  {
+  background-color: #999 !important;
+background-color: rgba(70,70,70,.25) !important;
+
+  filter: invert(100%);
+
+}
+.carousel-indicators .active {
+  width: 48px;
+  height: 48px;
+  margin: 10px;
+  background-color: #ffff99;
+  filter: invert(100%);
+}
+.slds-carousel__panels {
+border-color: black;
+border-radius: 0.5px;
+}
+.slds-carousel__stage{
+background-color: rgb(37, 37, 32);
+}
+
+
+.carousel-control { background-image:none !important; }
+
+.slds-carousel__indicator-action{
+border-color:black !important;
+}
+.testBody{
+background-color:rgb(221, 218, 218);
+
+
+}
+.slds-carousel__image>img {
+width: 100%;
+height: 600px;
+
+}
+.slds-carousel__content,.content-container{
+background: rgb(255, 255, 255);
+  /* padding: var(--lwc-spacingSmall,0.75rem); */
+  border-bottom-left-radius: var(--lwc-borderRadiusMedium,0.25rem);
+  border-bottom-right-radius: var(--lwc-borderRadiusMedium,0.25rem);
+  text-align: center;
+   height: 20rem; 
+  overflow-x: hidden;
+  overflow-y: auto;
+}

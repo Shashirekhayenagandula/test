@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <animationFrequency>always</animationFrequency>
+    <developerName>Profile_creation_path</developerName>
+    <isActive>true</isActive>
+    <masterLabel>Profile creation path</masterLabel>
+    <recordTypeContext>Master</recordTypeContext>
+    <recordTypeName>__MASTER__</recordTypeName>
+    <sobjectType>Match_Maker__Profile__c</sobjectType>
+    <targetField>Match_Maker__Status__c</targetField>
+    <targetFieldChangeToValues>New Profile,Request for Completion,Completed</targetFieldChangeToValues>
+</AnimationRule>

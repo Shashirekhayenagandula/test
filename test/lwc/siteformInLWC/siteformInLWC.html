@@ -1,0 +1,26 @@
+<template>
+    hhhhhhhhh 111111111111111
+    <lightning-record-edit-form record-id={recordId} object-api-name="Match_Maker__Profile__c"   onsuccess={handelSuccess}>
+        <lightning-messages></lightning-messages>
+        <lightning-layout multiple-rows>
+            hhhhhhhhh 
+            <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="12">
+          <lightning-input-field field-name='Match_Maker__Lives_In__Street__s'  ></lightning-input-field> </lightning-layout-item>
+           <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="8">
+          <lightning-input-field field-name='Match_Maker__Lives_In__City__s' ></lightning-input-field> </lightning-layout-item>
+          <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="4">
+          <lightning-input-field field-name='Match_Maker__Lives_In__StateCode__s'  ></lightning-input-field>  </lightning-layout-item>
+          <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="8">
+          <lightning-input-field field-name='Match_Maker__Lives_In__PostalCode__s'></lightning-input-field>  </lightning-layout-item>
+          <lightning-layout-item size="12" small-device-size="6" medium-device-size="12" large-device-size="4">
+          <lightning-input-field field-name='Match_Maker__Lives_In__CountryCode__s'></lightning-input-field>   </lightning-layout-item>
+        </lightning-layout>
+        <footer class="slds-modal__footer slds-text-align_center">
+           
+            <lightning-button variant="brand" type="submit" name="save" label="Save" onclick={handleSave}></lightning-button>
+        </footer>
+    
+    
+    </lightning-record-edit-form>
+    
+</template>

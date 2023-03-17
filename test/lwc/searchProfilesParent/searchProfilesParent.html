@@ -1,0 +1,64 @@
+<template>
+  <template if:false={showBool}>
+    <div class="slds-clearfix">
+      <div class="slds-float_left">
+          <span class="slds-badge"> Total Matched Profiles: {totalRecords}</span>
+      </div>
+  </div>
+  </template>
+  <lightning-card>
+    <template for:each={recordsToDisplay} for:item="profile" for:index="index">
+        <c-search-profiles-child key={profile.label.profilewrapper.Id}
+        profile={profile}
+        record-id={recordId}
+        oncheckboxvalue = {handleCheck}
+        ></c-search-profiles-child>
+    </template>
+    <div class="slds-text-align_left" style="padding-top:8px;padding-bottom:8px;font-size: 15px" >
+        <template if:false={showBool}>
+          <div class="slds-clearfix">
+            <div class="slds-float_left">
+                <span class="slds-badge"> Selected Profiles: {selectedShortlistedProfile}</span>
+            </div>
+            </div>
+      </template>
+       
+      </div>
+      <div class="slds-align_absolute-center slds-text-heading_small slds-text-color_error" style="font-weight: bold">
+        {norecords}
+      </div>
+
+      <template if:false={showBool}>
+        <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-spread" style="padding-top: 0.5em;">
+          <!--RECORDS PER PAGE-->
+          <div class="slds-col">
+              <div class="slds-list_inline slds-p-bottom_xx-small">
+                  <label class="slds-text-color_weak slds-p-horizontal_x-small" for="recordsPerPage">Page Size:</label>
+                  <div class="slds-select_container">
+                      <select class="slds-select" id="recordsPerPage" onchange={handleRecordsPerPage}>
+                          <template for:each={pageSizeOptions} for:item="option">
+                              <option key={option} value={option}>{option}</option>
+                          </template>
+                      </select>
+                  </div>
+              </div>
+
+              
+          </div>
+          </div>
+
+       <!--PAGE NAVIGATION-->
+      <div class="slds-align_absolute-center" style="height:5rem">
+        <lightning-button disabled={bDisableFirst} icon-name="utility:jump_to_left" label="First" class="slds-p-horizontal_x-small" alternative-text="first page" onclick={firstPage}></lightning-button>
+        <lightning-button disabled={bDisableFirst} icon-name="utility:chevronleft" label="Previous" alternative-text="Previous" onclick={previousPage}></lightning-button>
+        &nbsp;
+        <span class="slds-badge">Showing {pageNumber} &nbsp;of&nbsp; {totalPages} &nbsp;&nbsp;Page(s)</span>
+        &nbsp;
+        <lightning-button disabled={bDisableLast} icon-name="utility:chevronright" label="Next" alternative-text="Next" onclick={nextPage} class="slds-p-horizontal_x-small" icon-position="right"></lightning-button>
+        <lightning-button disabled={bDisableLast} icon-name="utility:jump_to_right" label="Last" alternative-text="last page" onclick={lastPage} icon-position="right"></lightning-button>
+    </div>
+        </template>
+
+        <button class="slds-button slds-button_brand slds-clearfix slds-align_absolute-center"  onclick={handleSave} disabled={showBool}>Save</button>
+    </lightning-card>
+</template>

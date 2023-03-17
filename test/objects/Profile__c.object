@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>profile_compact_layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>profile_compact_layout</fullName>
+        <fields>Name</fields>
+        <fields>Email__c</fields>
+        <fields>Mobile__c</fields>
+        <fields>Age__c</fields>
+        <fields>Religion__c</fields>
+        <fields>Professional_Area__c</fields>
+        <fields>Income_yearly__c</fields>
+        <label>profile compact layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>( TODAY() - DOB__c)/365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Birth_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Birth Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>Blood_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Blood Group</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A+</fullName>
+                    <default>false</default>
+                    <label>A+</label>
+                </value>
+                <value>
+                    <fullName>A-</fullName>
+                    <default>false</default>
+                    <label>A-</label>
+                </value>
+                <value>
+                    <fullName>B+</fullName>
+                    <default>false</default>
+                    <label>B+</label>
+                </value>
+                <value>
+                    <fullName>B-</fullName>
+                    <default>false</default>
+                    <label>B-</label>
+                </value>
+                <value>
+                    <fullName>AB+</fullName>
+                    <default>false</default>
+                    <label>AB+</label>
+                </value>
+                <value>
+                    <fullName>AB-</fullName>
+                    <default>false</default>
+                    <label>AB-</label>
+                </value>
+                <value>
+                    <fullName>O+</fullName>
+                    <default>false</default>
+                    <label>O+</label>
+                </value>
+                <value>
+                    <fullName>O-</fullName>
+                    <default>false</default>
+                    <label>O-</label>
+                </value>
+                <value>
+                    <fullName>Not Disclosed</fullName>
+                    <default>true</default>
+                    <label>Not Disclosed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Body_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Body Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Athletic</fullName>
+                    <default>false</default>
+                    <label>Athletic</label>
+                </value>
+                <value>
+                    <fullName>Average</fullName>
+                    <default>false</default>
+                    <label>Average</label>
+                </value>
+                <value>
+                    <fullName>Heavy</fullName>
+                    <default>false</default>
+                    <label>Heavy</label>
+                </value>
+                <value>
+                    <fullName>Slim</fullName>
+                    <default>false</default>
+                    <label>Slim</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Challenges__c</fullName>
+        <externalId>false</externalId>
+        <label>Challenges</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Physically from Birth</fullName>
+                    <default>false</default>
+                    <label>Physically from Birth</label>
+                </value>
+                <value>
+                    <fullName>Physically due to an Accident</fullName>
+                    <default>false</default>
+                    <label>Physically due to an Accident</label>
+                </value>
+                <value>
+                    <fullName>Mentally from Birth</fullName>
+                    <default>false</default>
+                    <label>Mentally from Birth</label>
+                </value>
+                <value>
+                    <fullName>Mentally due to an Accident</fullName>
+                    <default>false</default>
+                    <label>Mentally due to an Accident</label>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>None</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>College_University_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>College/University Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Community_Mother_Tounge__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please mention the native language that best represents your family background</inlineHelpText>
+        <label>Mother Tongue</label>
+        <length>48</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Name_current__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name(Current)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Profiles</relationshipLabel>
+        <relationshipName>Profiles</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Country_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Country_Code</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DOB__c</fullName>
+        <externalId>false</externalId>
+        <label>DOB</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Does_He_She_They_have_children__c</fullName>
+        <externalId>false</externalId>
+        <label>Does He/She/They have children?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes - Living Together</fullName>
+                    <default>false</default>
+                    <label>Yes - Living Together</label>
+                </value>
+                <value>
+                    <fullName>Yes - Not Living together</fullName>
+                    <default>false</default>
+                    <label>Yes - Not Living Together</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Drinks__c</fullName>
+        <externalId>false</externalId>
+        <label>Alcohol</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>false</externalId>
+        <label>Email</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Family_Lives_In__c</fullName>
+        <externalId>false</externalId>
+        <label>Family Lives In</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Address</type>
+    </fields>
+    <fields>
+        <fullName>Family_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Family Economical Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Middle Class</fullName>
+                    <default>false</default>
+                    <label>Middle Class</label>
+                </value>
+                <value>
+                    <fullName>Upper Class</fullName>
+                    <default>false</default>
+                    <label>Upper Class</label>
+                </value>
+                <value>
+                    <fullName>Rich/Affluent</fullName>
+                    <default>false</default>
+                    <label>Rich/Affluent</label>
+                </value>
+                <value>
+                    <fullName>Poor</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Poor</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Family_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Family Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Nuclear Family</fullName>
+                    <default>false</default>
+                    <label>Nuclear Family</label>
+                </value>
+                <value>
+                    <fullName>Joint Family</fullName>
+                    <default>false</default>
+                    <label>Joint Family</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Father_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Father&apos;s Occupation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Occupation_Status_Value</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Favourite_Criuisne__c</fullName>
+        <externalId>false</externalId>
+        <label>Favourite Cuisine</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Favourite_Music__c</fullName>
+        <externalId>false</externalId>
+        <label>Favourite Music</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Favourite_Read__c</fullName>
+        <externalId>false</externalId>
+        <label>Favourite Read</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gender__c</fullName>
+        <externalId>false</externalId>
+        <label>Gender</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Gender_Value</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Height__c</fullName>
+        <externalId>false</externalId>
+        <label>Height</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Height_Value</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Highest_Qualification__c</fullName>
+        <externalId>false</externalId>
+        <label>Highest Qualification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Associates Degree</fullName>
+                    <default>false</default>
+                    <label>Associates Degree</label>
+                </value>
+                <value>
+                    <fullName>Bachelors</fullName>
+                    <default>false</default>
+                    <label>Bachelors</label>
+                </value>
+                <value>
+                    <fullName>Diploma</fullName>
+                    <default>false</default>
+                    <label>Diploma</label>
+                </value>
+                <value>
+                    <fullName>Doctorate</fullName>
+                    <default>false</default>
+                    <label>Doctorate</label>
+                </value>
+                <value>
+                    <fullName>Engineering/Technology</fullName>
+                    <default>false</default>
+                    <label>Engineering/Technology</label>
+                </value>
+                <value>
+                    <fullName>High School</fullName>
+                    <default>false</default>
+                    <label>High School</label>
+                </value>
+                <value>
+                    <fullName>Honours Degree</fullName>
+                    <default>false</default>
+                    <label>Honours Degree</label>
+                </value>
+                <value>
+                    <fullName>Less than high school</fullName>
+                    <default>false</default>
+                    <label>Less than high school</label>
+                </value>
+                <value>
+                    <fullName>Masters</fullName>
+                    <default>false</default>
+                    <label>Masters</label>
+                </value>
+                <value>
+                    <fullName>Post Graduation</fullName>
+                    <default>false</default>
+                    <label>Post Graduation</label>
+                </value>
+                <value>
+                    <fullName>Trade School</fullName>
+                    <default>false</default>
+                    <label>Trade School</label>
+                </value>
+                <value>
+                    <fullName>Undergraduate</fullName>
+                    <default>false</default>
+                    <label>Undergraduate</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hobbies__c</fullName>
+        <externalId>false</externalId>
+        <label>Hobbies</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Income_yearly__c</fullName>
+        <externalId>false</externalId>
+        <label>Income (Annually)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Interest__c</fullName>
+        <externalId>false</externalId>
+        <label>Interest</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lives_In__c</fullName>
+        <externalId>false</externalId>
+        <label>Lives In</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Address</type>
+    </fields>
+    <fields>
+        <fullName>Living_with_Family__c</fullName>
+        <externalId>false</externalId>
+        <label>Living with Family</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Marital_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Marital Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unmarried</fullName>
+                    <default>false</default>
+                    <label>Unmarried</label>
+                </value>
+                <value>
+                    <fullName>Divorced</fullName>
+                    <default>false</default>
+                    <label>Divorced</label>
+                </value>
+                <value>
+                    <fullName>Widowed</fullName>
+                    <default>false</default>
+                    <label>Widowed</label>
+                </value>
+                <value>
+                    <fullName>Awaiting Divorce</fullName>
+                    <default>false</default>
+                    <label>Awaiting Divorce</label>
+                </value>
+                <value>
+                    <fullName>Annulled</fullName>
+                    <default>false</default>
+                    <label>Annulled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mobile__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Mother_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Mother&apos;s Occupation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Occupation_Status_Value</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>No_of_Brothers__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Brothers</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>No_of_Children__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Children</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Does_He_She_They_have_children__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>more than 5</fullName>
+                    <default>false</default>
+                    <label>More than 5</label>
+                </value>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>0</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes - Living Together</controllingFieldValue>
+                <controllingFieldValue>Yes - Not Living together</controllingFieldValue>
+                <valueName>1</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes - Living Together</controllingFieldValue>
+                <controllingFieldValue>Yes - Not Living together</controllingFieldValue>
+                <valueName>2</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes - Living Together</controllingFieldValue>
+                <controllingFieldValue>Yes - Not Living together</controllingFieldValue>
+                <valueName>3</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes - Living Together</controllingFieldValue>
+                <controllingFieldValue>Yes - Not Living together</controllingFieldValue>
+                <valueName>4</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes - Living Together</controllingFieldValue>
+                <controllingFieldValue>Yes - Not Living together</controllingFieldValue>
+                <valueName>5</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes - Living Together</controllingFieldValue>
+                <controllingFieldValue>Yes - Not Living together</controllingFieldValue>
+                <valueName>more than 5</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>No_of_Married_Sisters__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Married Sisters</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>No_of_Sisters__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Sisters</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Married_Brother__c</fullName>
+        <externalId>false</externalId>
+        <label>No of Married Brothers</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opposite_Gender__c</fullName>
+        <externalId>false</externalId>
+        <label>Looking for Gender</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Gender_Value</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Other_Religion__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Religion</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Place_of_Birth__c</fullName>
+        <externalId>false</externalId>
+        <label>Place of Birth</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preferred_Dress_Style__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Dress Style</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preferred_Movies__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Movies</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Professional_Area__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter profession name like Software Developer</inlineHelpText>
+        <label>Profession</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProfileURL__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;https://matchmakercrm-dev-ed.my.salesforce-sites.com/?id=&apos;+Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ProfileURL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Religion__c</fullName>
+        <externalId>false</externalId>
+        <label>Religion</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Buddhist</fullName>
+                    <default>false</default>
+                    <label>Buddhist</label>
+                </value>
+                <value>
+                    <fullName>Christian</fullName>
+                    <default>false</default>
+                    <label>Christian</label>
+                </value>
+                <value>
+                    <fullName>Hindu</fullName>
+                    <default>false</default>
+                    <label>Hindu</label>
+                </value>
+                <value>
+                    <fullName>Jain</fullName>
+                    <default>false</default>
+                    <label>Jain</label>
+                </value>
+                <value>
+                    <fullName>Jewish</fullName>
+                    <default>false</default>
+                    <label>Jewish</label>
+                </value>
+                <value>
+                    <fullName>Muslim</fullName>
+                    <default>false</default>
+                    <label>Muslim</label>
+                </value>
+                <value>
+                    <fullName>Parsi</fullName>
+                    <default>false</default>
+                    <label>Parsi</label>
+                </value>
+                <value>
+                    <fullName>Sikh</fullName>
+                    <default>false</default>
+                    <label>Sikh</label>
+                </value>
+                <value>
+                    <fullName>Spiritual</fullName>
+                    <default>false</default>
+                    <label>Spiritual</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>No Religion</fullName>
+                    <default>false</default>
+                    <label>No Religion</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sexuality__c</fullName>
+        <externalId>false</externalId>
+        <label>Sexuality</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Asexual</fullName>
+                    <default>false</default>
+                    <label>Asexual</label>
+                </value>
+                <value>
+                    <fullName>Bisexual</fullName>
+                    <default>false</default>
+                    <label>Bisexual</label>
+                </value>
+                <value>
+                    <fullName>Heterosexual</fullName>
+                    <default>false</default>
+                    <label>Heterosexual</label>
+                </value>
+                <value>
+                    <fullName>Homosexual</fullName>
+                    <default>false</default>
+                    <label>Homosexual</label>
+                </value>
+                <value>
+                    <fullName>Pansexual</fullName>
+                    <default>false</default>
+                    <label>Pansexual</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Skin_Tone_C__c</fullName>
+        <externalId>false</externalId>
+        <label>Skin Tone/Complexion</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Fair</fullName>
+                    <default>false</default>
+                    <label>Fair</label>
+                </value>
+                <value>
+                    <fullName>Light Neutral</fullName>
+                    <default>false</default>
+                    <label>Light Neutral</label>
+                </value>
+                <value>
+                    <fullName>Normal</fullName>
+                    <default>false</default>
+                    <label>Normal</label>
+                </value>
+                <value>
+                    <fullName>Wheatish</fullName>
+                    <default>false</default>
+                    <label>Wheatish</label>
+                </value>
+                <value>
+                    <fullName>Exotic</fullName>
+                    <default>false</default>
+                    <label>Exotic</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>Dark Brown</fullName>
+                    <default>false</default>
+                    <label>Dark Brown</label>
+                </value>
+                <value>
+                    <fullName>Toffee</fullName>
+                    <default>false</default>
+                    <label>Toffee</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Smoke__c</fullName>
+        <externalId>false</externalId>
+        <label>Does Smoke?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sport_Fitness_Activities__c</fullName>
+        <externalId>false</externalId>
+        <label>Sport/Fitness Activities</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Profile Status</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New Profile</fullName>
+                    <default>true</default>
+                    <label>New Profile</label>
+                </value>
+                <value>
+                    <fullName>Request for Completion</fullName>
+                    <default>false</default>
+                    <label>Request for Completion</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sub_Religion__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Religion</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Submitted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Submitted</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Weight__c</fullName>
+        <externalId>false</externalId>
+        <label>Weight</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>30kg to 35kg</fullName>
+                    <default>false</default>
+                    <label>30kg to 35kg</label>
+                </value>
+                <value>
+                    <fullName>36kg to 40kg</fullName>
+                    <default>false</default>
+                    <label>36kg to 40kg</label>
+                </value>
+                <value>
+                    <fullName>41kg to 45kg</fullName>
+                    <default>false</default>
+                    <label>41kg to 45kg</label>
+                </value>
+                <value>
+                    <fullName>46kg to 50kg</fullName>
+                    <default>false</default>
+                    <label>46kg to 50kg</label>
+                </value>
+                <value>
+                    <fullName>51kg to 55kg</fullName>
+                    <default>false</default>
+                    <label>51kg to 55kg</label>
+                </value>
+                <value>
+                    <fullName>56kg to 60kg</fullName>
+                    <default>false</default>
+                    <label>56kg to 60kg</label>
+                </value>
+                <value>
+                    <fullName>61kg to 65kg</fullName>
+                    <default>false</default>
+                    <label>61kg to 65kg</label>
+                </value>
+                <value>
+                    <fullName>66kg to 70kg</fullName>
+                    <default>false</default>
+                    <label>66kg to 70kg</label>
+                </value>
+                <value>
+                    <fullName>71kg to 75kg</fullName>
+                    <default>false</default>
+                    <label>71kg to 75kg</label>
+                </value>
+                <value>
+                    <fullName>76kg to 80kg</fullName>
+                    <default>false</default>
+                    <label>76kg to 80kg</label>
+                </value>
+                <value>
+                    <fullName>81kg to 85kg</fullName>
+                    <default>false</default>
+                    <label>81kg to 85kg</label>
+                </value>
+                <value>
+                    <fullName>86kg to 90kg</fullName>
+                    <default>false</default>
+                    <label>86kg to 90kg</label>
+                </value>
+                <value>
+                    <fullName>91kg to 95kg</fullName>
+                    <default>false</default>
+                    <label>91kg to 95kg</label>
+                </value>
+                <value>
+                    <fullName>96kg to 100kg</fullName>
+                    <default>false</default>
+                    <label>96kg to 100kg</label>
+                </value>
+                <value>
+                    <fullName>101kg to 105kg</fullName>
+                    <default>false</default>
+                    <label>101kg to 105kg</label>
+                </value>
+                <value>
+                    <fullName>106kg to 110kg</fullName>
+                    <default>false</default>
+                    <label>106kg to 110kg</label>
+                </value>
+                <value>
+                    <fullName>111kg to 115kg</fullName>
+                    <default>false</default>
+                    <label>111kg to 115kg</label>
+                </value>
+                <value>
+                    <fullName>116kg to 120kg</fullName>
+                    <default>false</default>
+                    <label>116kg to 120kg</label>
+                </value>
+                <value>
+                    <fullName>121kg to 125kg</fullName>
+                    <default>false</default>
+                    <label>121kg to 125kg</label>
+                </value>
+                <value>
+                    <fullName>126kg to 130kg</fullName>
+                    <default>false</default>
+                    <label>126kg to 130kg</label>
+                </value>
+                <value>
+                    <fullName>131kg to 135kg</fullName>
+                    <default>false</default>
+                    <label>131kg to 135kg</label>
+                </value>
+                <value>
+                    <fullName>136kg to 140kg</fullName>
+                    <default>false</default>
+                    <label>136kg to 140kg</label>
+                </value>
+                <value>
+                    <fullName>141kg to 145kg</fullName>
+                    <default>false</default>
+                    <label>141kg to 145kg</label>
+                </value>
+                <value>
+                    <fullName>146kg to 150kg</fullName>
+                    <default>false</default>
+                    <label>146kg to 150kg</label>
+                </value>
+                <value>
+                    <fullName>More than 150kg</fullName>
+                    <default>false</default>
+                    <label>More than 150kg</label>
+                </value>
+                <value>
+                    <fullName>Not Disclosed</fullName>
+                    <default>true</default>
+                    <label>Not Disclosed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Working_with__c</fullName>
+        <externalId>false</externalId>
+        <label>Working with</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Private Company</fullName>
+                    <default>false</default>
+                    <label>Private Company</label>
+                </value>
+                <value>
+                    <fullName>Government/Public Sector</fullName>
+                    <default>false</default>
+                    <label>Government/Public Sector</label>
+                </value>
+                <value>
+                    <fullName>Defence/Civil Sector</fullName>
+                    <default>false</default>
+                    <label>Defence/Civil Sector</label>
+                </value>
+                <value>
+                    <fullName>Business/ Self Employed</fullName>
+                    <default>false</default>
+                    <label>Business/ Self Employed</label>
+                </value>
+                <value>
+                    <fullName>Not Working</fullName>
+                    <default>false</default>
+                    <label>Not Working</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Your_Diet__c</fullName>
+        <externalId>false</externalId>
+        <label>Diet</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Eggetarian</fullName>
+                    <default>false</default>
+                    <label>Eggetarian</label>
+                </value>
+                <value>
+                    <fullName>Non-Veg</fullName>
+                    <default>false</default>
+                    <label>Non-Veg</label>
+                </value>
+                <value>
+                    <fullName>Occasionally Non-Veg</fullName>
+                    <default>false</default>
+                    <label>Occasionally Non-Veg</label>
+                </value>
+                <value>
+                    <fullName>vegetarian</fullName>
+                    <default>false</default>
+                    <label>Vegetarian</label>
+                </value>
+                <value>
+                    <fullName>Vegan</fullName>
+                    <default>false</default>
+                    <label>Vegan</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Zodiac__c</fullName>
+        <externalId>false</externalId>
+        <label>Zodiac</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Aries/Mesh</fullName>
+                    <default>false</default>
+                    <label>Aries/Mesh</label>
+                </value>
+                <value>
+                    <fullName>Taurus/Vrishabh</fullName>
+                    <default>false</default>
+                    <label>Taurus/Vrishabh</label>
+                </value>
+                <value>
+                    <fullName>Gemini/Mithuna</fullName>
+                    <default>false</default>
+                    <label>Gemini/Mithuna</label>
+                </value>
+                <value>
+                    <fullName>Cancer/Karka</fullName>
+                    <default>false</default>
+                    <label>Cancer/Karka</label>
+                </value>
+                <value>
+                    <fullName>Leo/Simha</fullName>
+                    <default>false</default>
+                    <label>Leo/Simha</label>
+                </value>
+                <value>
+                    <fullName>Virgo/Kanya</fullName>
+                    <default>false</default>
+                    <label>Virgo/Kanya</label>
+                </value>
+                <value>
+                    <fullName>Libra/Tula</fullName>
+                    <default>false</default>
+                    <label>Libra/Tula</label>
+                </value>
+                <value>
+                    <fullName>Scorpio/Vrishchik</fullName>
+                    <default>false</default>
+                    <label>Scorpio/Vrishchik</label>
+                </value>
+                <value>
+                    <fullName>Sagittarius/Dhanu</fullName>
+                    <default>false</default>
+                    <label>Sagittarius/Dhanu</label>
+                </value>
+                <value>
+                    <fullName>Capricorn/Makar</fullName>
+                    <default>false</default>
+                    <label>Capricorn/Makar</label>
+                </value>
+                <value>
+                    <fullName>Aquarius/Kumbha</fullName>
+                    <default>false</default>
+                    <label>Aquarius/Kumbha</label>
+                </value>
+                <value>
+                    <fullName>Pisces/Meena</fullName>
+                    <default>false</default>
+                    <label>Pisces/Meena</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Profile</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Age__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Active__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Income_yearly__c</columns>
+        <columns>Highest_Qualification__c</columns>
+        <columns>Religion__c</columns>
+        <columns>Zodiac__c</columns>
+        <columns>Marital_Status__c</columns>
+        <columns>Height__c</columns>
+        <columns>Opposite_Gender__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Gender__c</field>
+            <operation>equals</operation>
+            <value>Male</value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Religion__c</field>
+            <operation>equals</operation>
+            <value>Hindu</value>
+        </filters>
+        <filters>
+            <field>Income_yearly__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>15000</value>
+        </filters>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Full Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Profiles</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Age__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Email__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Mobile__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Active__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Income_yearly__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Highest_Qualification__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Height__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Marital_Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Brothers</fullName>
+        <active>true</active>
+        <errorConditionFormula>No_of_Brothers__c  &lt;  Number_of_Married_Brother__c</errorConditionFormula>
+        <errorDisplayField>No_of_Brothers__c</errorDisplayField>
+        <errorMessage>No. of Brothers must be greater than no. of married brothers</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DOB</fullName>
+        <active>true</active>
+        <errorConditionFormula>YEAR(TODAY()) - YEAR( DOB__c) &lt; 16</errorConditionFormula>
+        <errorDisplayField>DOB__c</errorDisplayField>
+        <errorMessage>Minimum age should be 16 yrs</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Phone</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(REGEX(Mobile__c, &quot;\\D*?(\\d\\D*?){10}&quot;))</errorConditionFormula>
+        <errorDisplayField>Mobile__c</errorDisplayField>
+        <errorMessage>Enter Valid Phone Number</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Religion</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+   ISPICKVAL( Religion__c , &quot;Others&quot;),
+   ISBLANK( Other_Religion__c )
+)</errorConditionFormula>
+        <errorDisplayField>Other_Religion__c</errorDisplayField>
+        <errorMessage>Enter Other Religion Text Field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Sister</fullName>
+        <active>true</active>
+        <errorConditionFormula>No_of_Sisters__c  &lt;  No_of_Married_Sisters__c</errorConditionFormula>
+        <errorMessage>No. of Sister must great than no. of Married Sister</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>children</fullName>
+        <active>true</active>
+        <errorConditionFormula>(ISPICKVAL(Does_He_She_They_have_children__c, &apos;Yes - Living Together&apos;) ||
+ISPICKVAL(Does_He_She_They_have_children__c, &apos;Yes - Not Living together&apos;)) &amp;&amp; (ISPICKVAL( No_of_Children__c ,&apos;&apos;))</errorConditionFormula>
+        <errorDisplayField>No_of_Children__c</errorDisplayField>
+        <errorMessage>Enter Number of Children</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Profile_Update</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Profile Update</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+ 
+window.location = &apos;/_ui/core/email/author/EmailAuthor?rtype=003&amp;p3_lkid={! Profile__c.Id}&amp;retURL=/{! Profile__c.Id }&amp;
+p24=&quot;{! Profile__c.Email__c }&amp;template_id=00X8d000000EJ2QEAW&apos;;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Request_Information</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Request Information</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+ 
+window.location = &apos;/_ui/core/email/author/EmailAuthor?rtype=003&amp;p3_lkid={!Profile__c.Id}&amp;retURL=/{!Profile__c.Id}&amp;p5={!$User.Email}&amp;p24=
+&quot;{!Profile__c.Email__c}&amp;template_id=00X8d000000EJ2QEAW&apos;;</url>
+    </webLinks>
+</CustomObject>

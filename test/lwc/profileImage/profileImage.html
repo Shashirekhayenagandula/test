@@ -1,0 +1,25 @@
+<template>
+    
+  <lightning-card title="Profile Photo" class=" container" >
+      
+      <div class="testBody">
+
+  <lightning-carousel disable-auto-scroll class="carosuel">
+      
+     
+      <template for:each={filesList} for:item="file" for:index="index">    
+                        
+          <lightning-carousel-image class="img slds-carousel__content content-container" 
+          key={file.Id}
+              src={file.src}
+              
+              alternative-text="This is a card"  >
+          </lightning-carousel-image >
+      </template>
+      
+  </lightning-carousel>
+</div>
+
+</lightning-card>
+
+</template>

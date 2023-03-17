@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>100 cm</fullName>
+        <default>false</default>
+        <label>100 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>101 cm</fullName>
+        <default>false</default>
+        <label>101 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>102 cm</fullName>
+        <default>false</default>
+        <label>102 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>103 cm</fullName>
+        <default>false</default>
+        <label>103 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>104 cm</fullName>
+        <default>false</default>
+        <label>104 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>105 cm</fullName>
+        <default>false</default>
+        <label>105 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>106 cm</fullName>
+        <default>false</default>
+        <label>106 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>107 cm</fullName>
+        <default>false</default>
+        <label>107 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>108 cm</fullName>
+        <default>false</default>
+        <label>108 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>109 cm</fullName>
+        <default>false</default>
+        <label>109 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>110 cm</fullName>
+        <default>false</default>
+        <label>110 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>111 cm</fullName>
+        <default>false</default>
+        <label>111 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>112 cm</fullName>
+        <default>false</default>
+        <label>112 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>113 cm</fullName>
+        <default>false</default>
+        <label>113 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>114 cm</fullName>
+        <default>false</default>
+        <label>114 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>115 cm</fullName>
+        <default>false</default>
+        <label>115 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>116 cm</fullName>
+        <default>false</default>
+        <label>116 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>117 cm</fullName>
+        <default>false</default>
+        <label>117 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>118 cm</fullName>
+        <default>false</default>
+        <label>118 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>119 cm</fullName>
+        <default>false</default>
+        <label>119 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>120 cm</fullName>
+        <default>false</default>
+        <label>120 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>121 cm</fullName>
+        <default>false</default>
+        <label>121 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>122 cm</fullName>
+        <default>false</default>
+        <label>122 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>123 cm</fullName>
+        <default>false</default>
+        <label>123 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>124 cm</fullName>
+        <default>false</default>
+        <label>124 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>125 cm</fullName>
+        <default>false</default>
+        <label>125 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>126 cm</fullName>
+        <default>false</default>
+        <label>126 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>127 cm</fullName>
+        <default>false</default>
+        <label>127 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>128 cm</fullName>
+        <default>false</default>
+        <label>128 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>129 cm</fullName>
+        <default>false</default>
+        <label>129 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>130 cm</fullName>
+        <default>false</default>
+        <label>130 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>131 cm</fullName>
+        <default>false</default>
+        <label>131 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>132 cm</fullName>
+        <default>false</default>
+        <label>132 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>133 cm</fullName>
+        <default>false</default>
+        <label>133 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>134 cm</fullName>
+        <default>false</default>
+        <label>134 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>135 cm</fullName>
+        <default>false</default>
+        <label>135 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>136 cm</fullName>
+        <default>false</default>
+        <label>136 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>137 cm</fullName>
+        <default>false</default>
+        <label>137 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>138 cm</fullName>
+        <default>false</default>
+        <label>138 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>139 cm</fullName>
+        <default>false</default>
+        <label>139 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>140 cm</fullName>
+        <default>false</default>
+        <label>140 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>141 cm</fullName>
+        <default>false</default>
+        <label>141 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>142 cm</fullName>
+        <default>false</default>
+        <label>142 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>143 cm</fullName>
+        <default>false</default>
+        <label>143 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>144 cm</fullName>
+        <default>false</default>
+        <label>144 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>145 cm</fullName>
+        <default>false</default>
+        <label>145 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>146 cm</fullName>
+        <default>false</default>
+        <label>146 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>147 cm</fullName>
+        <default>false</default>
+        <label>147 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>148 cm</fullName>
+        <default>false</default>
+        <label>148 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>149 cm</fullName>
+        <default>false</default>
+        <label>149 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>150 cm</fullName>
+        <default>false</default>
+        <label>150 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>151 cm</fullName>
+        <default>false</default>
+        <label>151 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>152 cm</fullName>
+        <default>false</default>
+        <label>152 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>153 cm</fullName>
+        <default>false</default>
+        <label>153 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>154 cm</fullName>
+        <default>false</default>
+        <label>154 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>155 cm</fullName>
+        <default>false</default>
+        <label>155 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>156 cm</fullName>
+        <default>false</default>
+        <label>156 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>157 cm</fullName>
+        <default>false</default>
+        <label>157 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>158 cm</fullName>
+        <default>false</default>
+        <label>158 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>159 cm</fullName>
+        <default>false</default>
+        <label>159 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>160 cm</fullName>
+        <default>false</default>
+        <label>160 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>161 cm</fullName>
+        <default>false</default>
+        <label>161 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>162 cm</fullName>
+        <default>false</default>
+        <label>162 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>163 cm</fullName>
+        <default>false</default>
+        <label>163 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>164 cm</fullName>
+        <default>false</default>
+        <label>164 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>165 cm</fullName>
+        <default>false</default>
+        <label>165 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>166 cm</fullName>
+        <default>false</default>
+        <label>166 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>167 cm</fullName>
+        <default>false</default>
+        <label>167 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>168 cm</fullName>
+        <default>false</default>
+        <label>168 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>169 cm</fullName>
+        <default>false</default>
+        <label>169 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>170 cm</fullName>
+        <default>false</default>
+        <label>170 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>171 cm</fullName>
+        <default>false</default>
+        <label>171 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>172 cm</fullName>
+        <default>false</default>
+        <label>172 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>173 cm</fullName>
+        <default>false</default>
+        <label>173 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>174 cm</fullName>
+        <default>false</default>
+        <label>174 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>175 cm</fullName>
+        <default>false</default>
+        <label>175 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>176 cm</fullName>
+        <default>false</default>
+        <label>176 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>177 cm</fullName>
+        <default>false</default>
+        <label>177 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>178 cm</fullName>
+        <default>false</default>
+        <label>178 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>179 cm</fullName>
+        <default>false</default>
+        <label>179 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>180 cm</fullName>
+        <default>false</default>
+        <label>180 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>181 cm</fullName>
+        <default>false</default>
+        <label>181 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>182 cm</fullName>
+        <default>false</default>
+        <label>182 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>183 cm</fullName>
+        <default>false</default>
+        <label>183 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>184 cm</fullName>
+        <default>false</default>
+        <label>184 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>185 cm</fullName>
+        <default>false</default>
+        <label>185 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>186 cm</fullName>
+        <default>false</default>
+        <label>186 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>187 cm</fullName>
+        <default>false</default>
+        <label>187 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>188 cm</fullName>
+        <default>false</default>
+        <label>188 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>189 cm</fullName>
+        <default>false</default>
+        <label>189 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>190 cm</fullName>
+        <default>false</default>
+        <label>190 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>191 cm</fullName>
+        <default>false</default>
+        <label>191 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>192 cm</fullName>
+        <default>false</default>
+        <label>192 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>193 cm</fullName>
+        <default>false</default>
+        <label>193 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>194 cm</fullName>
+        <default>false</default>
+        <label>194 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>195 cm</fullName>
+        <default>false</default>
+        <label>195 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>196 cm</fullName>
+        <default>false</default>
+        <label>196 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>197 cm</fullName>
+        <default>false</default>
+        <label>197 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>198 cm</fullName>
+        <default>false</default>
+        <label>198 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>199 cm</fullName>
+        <default>false</default>
+        <label>199 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>200 cm</fullName>
+        <default>false</default>
+        <label>200 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>201 cm</fullName>
+        <default>false</default>
+        <label>201 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>202 cm</fullName>
+        <default>false</default>
+        <label>202 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>203 cm</fullName>
+        <default>false</default>
+        <label>203 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>204 cm</fullName>
+        <default>false</default>
+        <label>204 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>205 cm</fullName>
+        <default>false</default>
+        <label>205 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>206 cm</fullName>
+        <default>false</default>
+        <label>206 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>207 cm</fullName>
+        <default>false</default>
+        <label>207 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>208 cm</fullName>
+        <default>false</default>
+        <label>208 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>209 cm</fullName>
+        <default>false</default>
+        <label>209 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>210 cm</fullName>
+        <default>false</default>
+        <label>210 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>211 cm</fullName>
+        <default>false</default>
+        <label>211 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>212 cm</fullName>
+        <default>false</default>
+        <label>212 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>213 cm</fullName>
+        <default>false</default>
+        <label>213 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>214 cm</fullName>
+        <default>false</default>
+        <label>214 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>215 cm</fullName>
+        <default>false</default>
+        <label>215 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>216 cm</fullName>
+        <default>false</default>
+        <label>216 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>217 cm</fullName>
+        <default>false</default>
+        <label>217 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>218 cm</fullName>
+        <default>false</default>
+        <label>218 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>219 cm</fullName>
+        <default>false</default>
+        <label>219 cm</label>
+    </customValue>
+    <customValue>
+        <fullName>220 cm</fullName>
+        <default>false</default>
+        <label>220 cm</label>
+    </customValue>
+    <masterLabel>Height_Value</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

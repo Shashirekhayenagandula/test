@@ -1,0 +1,39 @@
+.fitimage
+{    padding-top:10px;
+    padding-bottom:10px;
+    width:160px;
+    height:220px !important;
+   
+}
+.details{
+    margin-top: 10px;
+    /* margin-bottom: 100px;
+    margin-right: 10px; */
+    margin-left: 30px;
+}
+.mouse{
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease-in-out;
+}
+.mouse:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+  }
+
+.label{
+    padding: 5px 5px 5px 5px;
+    overflow-wrap: break-word;
+    font-weight: bold;
+}
+
+.pro{
+    overflow-wrap: break-word;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+}
+
+.mp{
+    padding: 5px 5px 5px 5px;
+    overflow-wrap: break-word;
+  
+    text-align: center;
+}

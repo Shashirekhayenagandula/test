@@ -1,0 +1,4 @@
+<aura:component  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,lightning:actionOverride,lightning:isUrlAddressable" access="global" >
+   <aura:handler name="change" value="{!v.pageReference}" action="{!c.handleChange}"/>
+ <c:lineItem recordId="{!v.recordId}"/>
+</aura:component>

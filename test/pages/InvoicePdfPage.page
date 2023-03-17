@@ -1,0 +1,224 @@
+<apex:page controller="InvoicePdfClass" renderAs="pdf" sidebar="false" applyHtmlTag="false" applyBodyTag="false" showHeader="false" standardStylesheets="false" action="{!getInvoiceInformation}" docType="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <apex:includeScript value="{!$Resource.JQuery}" />
+        
+        <head>
+            
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+            <style type="text/css">
+                
+                @page {
+                size:A4 portrait;
+                margin-bottom: 30px;
+                margin-top: 30px;
+                margin-left:30px;
+                margin-right:30px;
+                padding-left:30px;
+                padding-right:30px;
+                padding-bottom:30px;
+                border-style: solid !important;
+                
+                }
+                .margin{
+                margin-bottom: 20px;
+                margin-top: 0in;
+                margin-left:100px;
+                margin-right:100px;
+                border: 0.001px solid rgb(230, 230, 230);
+                }
+                .matchylogo {
+                float: left;
+                margin-top: 10px;
+                margin-left:-300px;
+                }
+                .address{
+                margin-top: 20px;
+                margin-left: 250px;
+                
+                
+                }
+                
+                .header {
+                display: inline-block; 
+                width: 100%;
+                
+                }
+                .bill
+                {
+                margin-left:0px;
+                }
+                 .td1
+                {
+              		padding-left:370px;
+                	vertical-align:top;width:85%;
+                }
+                .td2
+                {
+              
+                vertical-align:top;width:15%;
+                }
+                .td3
+                { 
+
+                }
+                .rupee{
+                 max-width:300px;
+                max-height:300px;
+                }
+                
+            </style>
+            
+        </head>
+        <apex:form >
+            
+            <pageblock>
+                <div class="main">
+                    <div class="margin">
+                        <div class="header">
+                            <apex:panelGrid columns="2" id="theGrid1">
+                                <div>
+                                    <apex:panelGrid columns="1" id="theGrid">
+                                   <apex:outputText id="theFirst"><apex:image id="matchylogo" value="{!$Resource.MatchyLogo}" width="90" height="90" style="float:left;margin-left:-555px;"/></apex:outputText>
+ 									<b><p style="float:left;margin-left:-535px;margin-top:-10px;">
+                                        <i>Matchy</i>
+                                        </p></b>
+                                         </apex:panelGrid>
+                                </div>
+                                <p style="text-align:right;font-size:14px;float:right;margin-left:180px;margin-right:-110px;margin-top:-100px;">A3 Module, Quadrant2, 10th Floor, Cyber Towers
+                                    Hi-Tech City, Madhapur, Rangareddy<br/>
+                                    Hyderabad, Telangana-500081<br/>
+                                    India
+                                </p> 
+                                 
+                            </apex:panelGrid>
+                        </div>
+                        
+                        <div class="main">
+                            <div style="text-align:center;font-size: 20px;margin-top:-30px;"><b>Invoice</b></div><br/><br/>
+                          <!--  <center><p><b><h1 class="slds-section-title slds-text-align--center" style="font-weight:bold;color:black;height:50%;margin-top:-60px;font-size: 22px;">Invoice</h1></b></p></center> -->
+                        </div><br/>
+                        <div>
+                           
+                            <div style="margin-top:-33px">
+                                <div style="text-align:Right;margin-right:0px">&nbsp;<apex:outputText value="{0,date,dd/MM/yy}">Created Date:&nbsp;<apex:param value="{!invoiceLineitem[0].Match_Maker__Invoice__r.CreatedDate}" /></apex:outputText></div>
+                                <div style="text-align:Right;margin-right:0px">Time:&nbsp;
+                                    {!HOUR(invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Time__c)}:
+                                    <apex:outputText value="{0,number,00}">
+                                        <apex:param value="{!Minute(invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Time__c)}" />
+                                    </apex:outputText> </div>
+                                <div style="text-align:Right;margin-right:0px"><apex:outputText value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Name}">Invoice Number:&nbsp;</apex:outputText></div>
+                            </div>
+							
+                            <div style="margin-top:-55px">
+                                <div style="text-align:left;margin-left:0px;">  <b> Bill To:</b>&nbsp;</div>
+                                <div style="text-align:left;margin-left:0px;">  <b> Name:</b>&nbsp;<apex:outputText value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Full_Name__c}" style="text-align:left;margin-left:0px;"/> </div>
+                                <div style="text-align:left;margin-left:0px;"><b>Email:&nbsp;</b><apex:outputText value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Email__c}"/></div>
+                                <div style="text-align:left;margin-left:0px;"><b>Phone:&nbsp;</b><apex:outputText value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Phone__c}"/></div>
+								
+                                <div style="text-align:left;margin-left:0px;"><b>Address:&nbsp;</b><apex:outputText value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Address__Street__s}"/>,
+                                     <apex:outputText value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Address__City__s}"/><br/>
+                              <div style="margin-left:65px;">
+                                <apex:outputText value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Address__StateCode__s}"/>,
+                               <apex:outputText value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Address__CountryCode__s}"/>,
+                               <apex:outputText value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Address__PostalCode__s}"/>
+                                     </div> 
+                                </div>
+                            </div>
+                           
+                        </div>  
+                        <br/><br/>
+                        <div style="text-align:left;font-size: 20px; background-color:#A9A9A9;margin-right:0px;">Item Information</div><br/>
+                        <div style="text-align:left;margin-top:2px;margin-left:0px;margin-right:0px">
+                            
+                            
+                            <table style="width:100% !important;border: 1px solid black;border-collapse:collapse;padding-left:0px !important;margin-left:0px;margin-right:-100px!important">
+                                <thead>
+                                    <tr >
+                                        <th scope="col" style="text-align:center;border: 1px solid black;border-collapse:collapse;font-size:15px;padding:5px;">#</th>
+                                        <th scope="col" style="text-align:center;border: 1px solid black;border-collapse:collapse;font-size:15px;padding:5px;">Item Name/Description</th>
+                                        <th scope="col" style="text-align:center;border: 1px solid black;border-collapse:collapse;font-size:15px;padding:5px;">Rate</th>
+                                        <th scope="col" style="text-align:center;border: 1px solid black;border-collapse:collapse;font-size:15px;padding:5px;">Quantity</th>
+                                        <th scope="col" style="text-align:center;border: 1px solid black;border-collapse:collapse;font-size:15px;padding:5px;">Discount(%)</th>
+                                        <th  scope="col" style="text-align:center;border: 1px solid black;;border-collapse:collapse;font-size:15px;padding:5px;">Tax(%)</th>
+                                        <th scope="col" style="text-align:center;border: 1px solid black;border-collapse:collapse;font-size:15px;padding:5px;">Line Item Total</th>
+                                        
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <apex:variable value="{!1}" var="count" />
+                                    <apex:repeat value="{!invoiceLineitem}" var="item" >
+                                        
+                                        <tr>
+                                            <td style="text-align:center;width:3%;padding:5px;border: 1px solid black;border-collapse:collapse;font-size:15px; word-wrap: break-word;">{!count}<apex:variable value="{!count+1}" var="count" /> </td>
+                                            <td style="text-align:center;width:20%;padding:5px;border: 1px solid black;border-collapse:collapse;font-size:15px; word-wrap: break-word;" ><apex:outputField value="{!item.Match_Maker__Items__r.Name}"/></td> 
+                                            <td style="text-align:center;width:15%;padding:5px;border: 1px solid black;border-collapse:collapse;font-size:15px;word-wrap: break-word;"><apex:outputField value="{!item.Amount__c}"/></td>
+                                            <td style="text-align:center;width:12%;padding:5px;border: 1px solid black;border-collapse:collapse;font-size:15px;word-wrap: break-word;"><apex:outputField value="{!item.Quantity__c}"/></td>
+                                            <td style="text-align:center;width:12%;padding:5px;border: 1px solid black;border-collapse:collapse;font-size:15px;word-wrap: break-word;"><apex:outputField value="{!item.Discount__c}"/></td>
+                                            <td style="text-align:center;width:12%;padding:5px;border: 1px solid black;border-collapse:collapse;font-size:15px;word-wrap: break-word;"><apex:outputField value="{!item.Taxs__c}"/></td>
+                                            <td style="text-align:center;width:13%;padding:5px;border: 1px solid black;;border-collapse:collapse;font-size:15px;word-break: break-word;"><apex:outputField value="{!item.Line_Item_Total__c}"/></td> 
+                                        </tr>
+                                    </apex:repeat>
+                                </tbody>
+                                
+                            </table>
+                            
+                        </div>   <br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                  
+                    <table style="width:100% !important;border-style:groove;border-color:#D3D3D3;border-collapse:collapse;padding-left:0px !important;">
+                        <thead>
+                            <tr style="text-align:Right;padding:2px;word-wrap: break-word;">
+            	<td class="td1"><b>Total Amount</b></td>
+                <td class="td3"><b>:</b></td>
+            	<td class="td2"><apex:outputText value="{0, number, 00.00}">  <apex:param value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Total_Amount__c}" /></apex:outputText></td>
+                            </tr>
+                            <tr style="text-align:Right;padding:2px;word-wrap: break-word;">
+            	<td class="td1"><b>Total Discount Amount</b></td>
+                <td class="td3"><b>:</b></td>
+                                <td class="td2"><div class="rupee">
+                                    </div><apex:outputText value="{0, number, 00.00}">  <apex:param value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Total_Discount_Amount__c}" /></apex:outputText></td>
+                            </tr>
+                            <tr style="text-align:Right;padding:2px;word-wrap: break-word;">
+            	<td class="td1"><b>Total Tax Amount</b></td>
+                <td class="td3"><b>:</b></td>
+                                <td class="td2"><apex:outputText value="{0, number, 00.00}">  <apex:param value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Total_Tax_Amount__c}"/></apex:outputText></td>
+                            </tr>
+                            <tr style="text-align:Right;padding:2px;word-wrap: break-word;">
+            	<td class="td1" style="text-align:Right;margin-right:0px"><b>Total Net Invoice Amount</b></td>
+                <td class="td3" style="text-align:Right;margin-right:0px;padding-right:0px"><b>:</b></td>
+                                <td class="td2" style="text-align:Right;margin-right:0px"><apex:outputText value="{0, number, 00.00}">  <apex:param value="{!invoiceLineitem[0].Match_Maker__Invoice__r.Match_Maker__Net_Invoice_Amount__c}"/></apex:outputText></td>
+                            </tr>
+                             </thead>
+                    </table>
+                           <div style="text-align:Right;margin-right:0px">
+                                <div style="text-align:Right;margin-right:0px"><b><apex:outputText value="{!netTotal}">Total in Words :&nbsp;</apex:outputText></b></div>
+                </div>     
+                    <br/><br/><br/>
+                    
+                </div>
+                <p  style="text-align:left;margin-top: -20px;"><b>Terms and Conditions</b><br/></p>
+                
+                <p style="text-align:left;margin-top: -10px;"> 1.&nbsp;The Bill and accompanying documents are to be made directly in the name of the Consignee.<br/></p>
+                <p style="text-align:left;margin-top: -10px;"> 2.&nbsp;Details of documentation will be handed over only after clearing the bill.<br/></p>
+                <p style="text-align:left;margin-top: -10px;"> 3.&nbsp;The price as indicated above is firm and final. Revisions to the same cannot be made.<br/></p>
+                <p style="text-align:left;margin-top: -10px;"> 4.&nbsp;The above price is inclusive of all applicable taxes and levies unless specifically stated.<br/></p>
+                <p style="text-align:left;margin-top: -10px;"> 5.&nbsp;Acceptance of the good is subject to the merchandise meeting all specifications as detailed as above.<br/></p>
+                
+                
+                <div style="text-align:left;font-size: 18px; background-color:#A9A9A9;">Invoice Acceptance Information</div><br/>
+                
+                <div style="text-align:left;">Name : </div>
+                <div style="text-align:left;">Date &nbsp; : </div>
+                
+                <div>
+                    &nbsp;  
+                </div>
+                <div>
+                    &nbsp;  
+                </div>  
+                <div   style="text-align:right;margin-top:-22px;margin-top:-33px; "><b>Authorized Signature</b></div>
+                
+            </pageblock>
+        </apex:form>
+    </html>
+</apex:page>
