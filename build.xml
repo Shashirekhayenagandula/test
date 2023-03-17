@@ -1,0 +1,86 @@
+<project name="Sample usage of Salesforce Ant tasks" basedir="."
+    xmlns:sf="antlib:com.salesforce">
+    <property file="build.properties"/>
+    <property environment="env"/>
+    <target name="get">
+        <mkdir dir="src"/>
+        <sf:retrieve 
+				username="${sf.Sourceusername}" 
+				password="${sf.Sourcepassword}" 
+				serverurl="${sf.SourceserverURL}" 
+				maxPoll="${sf.maxPoll}" 
+				retrieveTarget="src" 
+				unpackaged="package.xml"/>
+    </target>
+	 <target name="sourcebackup">
+        <mkdir dir="Backup-Source"/>
+        <sf:retrieve 
+				username="${sf.Sourceusername}" 
+				password="${sf.Sourcepassword}"
+				serverurl="${sf.SourceserverURL}" 
+				maxPoll="${sf.maxPoll}" 
+				retrieveTarget="Backup-Source" 
+				unpackaged="package.xml"/>
+    </target>
+	 <target name="targetbackup">
+        <mkdir dir="Backup-Target"/>
+        <sf:retrieve 
+				username="${sf.TargetUsername}" 
+				password="${sf.Targetpassword}" 
+				serverurl="${sf.TargetserverURL}" 
+				maxPoll="${sf.maxPoll}" 
+				retrieveTarget="Backup-Target" 
+				unpackaged="package.xml"/>
+    </target>
+	<target name="getpkg">
+	<mkdir dir="src"/>
+  <sf:retrieve 
+      username="${sf.Sourceusername}" 
+      password="${sf.Sourcepassword}"
+      serverurl="${sf.SourceserverURL}" 
+	  maxPoll="${sf.maxPoll}" 
+      retrieveTarget="src" 
+      packageNames="StripeDevSurender"/>
+	</target>
+    <target name="test">
+        <sf:deploy 
+				username="${sf.TargetUsername}" 
+				password="${sf.Targetpassword}" 
+				serverurl="${sf.TargetserverURL}" 
+				maxPoll="${sf.maxPoll}" 
+				checkOnly="true" 
+				testLevel="RunLocalTests"
+				deployRoot="src" />
+    </target>
+	  <target name="qd">
+        <sf:deployRecentValidation       
+      username="${sf.TargetUsername}" 
+				password="${sf.Targetpassword}" 
+				serverurl="${sf.TargetserverURL}" 
+        recentValidationId = "0Af1K00001vUoGqSAK"
+        />
+    </target>
+    <target name="deploy">
+        <sf:deploy 
+				username="${sf.TargetUsername}" 
+				password="${sf.Targetpassword}" 
+				serverurl="${sf.TargetserverURL}" 
+				maxPoll="${sf.maxPoll}" 
+				deployRoot="src" />
+    </target>
+    <target name="testfew">
+        <sf:deploy 
+			  username="${sf.TargetUsername}" 
+				password="${sf.Targetpassword}" 
+				serverurl="${sf.TargetserverURL}" 
+			   deployRoot="src"
+			   testLevel="RunSpecifiedTests"
+			   maxPoll="${sf.maxPoll}"
+			   checkOnly="true" >
+            
+			<runTest>Phoenix_RosControllerTest</runTest>
+			
+			
+        </sf:deploy>
+    </target>
+</project>
